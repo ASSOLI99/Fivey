@@ -42,7 +42,12 @@ body {
 }
 /* globals sitting end */
 /* navbar start */
+.nav-helper-top {
+  height: 72px;
+  width: 100%;
+}
 .main-nav {
+  z-index: 2000;
   height: 72px;
   display: flex;
   width: 100%;
@@ -51,6 +56,7 @@ body {
   padding: 5px 20px;
   background-color: rgb(255 255 255);
   border-bottom: solid 1px #0000001a;
+  position: fixed;
 }
 .left-nav,
 .right-nav,
