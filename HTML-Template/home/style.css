@@ -655,4 +655,50 @@ body {
   }
 }
 /* categories section end */
+/* Featured courses start*/
+.featured-view .container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.featured-view .heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.featured-view .heading h2 {
+  font-size: 28px;
+}
+.featured-view .heading h2 a {
+  color: var(--main-yellow);
+}
+.featured-view .heading h2 a:hover {
+  color: var(--secoundry-yellow);
+}
+.featured-view .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media (max-width: 460px) {
+  .featured-view .heading h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 380px) {
+  .featured-view .heading h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 315px) {
+  .featured-view .heading h2 {
+    font-size: 16px;
+  }
+}
+/* Featured courses end */
 /* main end */
