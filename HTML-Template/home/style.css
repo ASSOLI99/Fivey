@@ -432,6 +432,13 @@ body {
   background-color: #f8f8f8;
   text-align: center;
 }
+.partners p {
+  text-align: center;
+  transform: translateX(-25px);
+  font-size: 20px;
+  font-weight: bolder;
+  color: var(--secoundry-color);
+}
 .partners .companies {
   width: 100%;
   display: flex;
