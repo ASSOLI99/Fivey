@@ -674,6 +674,7 @@ body {
 .featured-view .heading h2 a {
   color: var(--main-yellow);
   text-decoration: none;
+  transition: var(--main-transition);
 }
 .featured-view .heading h2 a:hover {
   color: var(--secoundry-yellow);
@@ -750,6 +751,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 40px 25px;
   }
   .start-learn .left-side {
     text-align: center;
@@ -764,3 +766,176 @@ body {
 }
 /* start learn end */
 /* main end */
+/* footer start */
+footer {
+}
+footer .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+footer .top .left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-basis: calc((100% / 2) - (330px / 3));
+}
+footer .top .left-side img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+footer .top .left-side p {
+  font-size: 16px;
+  font-weight: 600;
+}
+footer .top .left-side a {
+  margin-top: 10px;
+  text-decoration: none;
+  color: var(--main-yellow);
+  font-size: 17px;
+  transition: var(--main-transition);
+}
+footer .top .left-side a:hover {
+  color: var(--secoundry-yellow);
+}
+footer .top .middle-side {
+  flex-basis: calc((100% / 4) - (40px / 3));
+}
+footer .top .middle-side h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+footer .top .middle-side ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+footer .top .middle-side li:not(:last-child) {
+  margin-bottom: 5px;
+}
+footer .top .middle-side a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--secoundry-color);
+  transition: var(--main-transition);
+}
+footer .top .middle-side a:hover {
+  color: var(--main-yellow);
+}
+footer .top .right-side {
+  flex-basis: calc((100% / 4) - (40px / 3));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+footer .top .right-side h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+footer .top .right-side .details {
+}
+footer .top .right-side .details p {
+  margin-bottom: 10px;
+  color: var(--secoundry-color);
+}
+footer .top .right-side .details a {
+  text-decoration: none;
+  transition: var(--main-transition);
+  color: var(--main-yellow);
+}
+footer .top .right-side .details a:hover {
+  color: var(--secoundry-yellow);
+}
+footer .lower {
+  margin-top: 40px;
+  border-top: solid 1px var(--secoundry-color);
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+footer .lower p {
+  font-size: 13px;
+  color: var(--secoundry-color);
+  flex-basis: 75%;
+}
+footer .lower p span {
+  color: var(--main-yellow);
+}
+footer .lower p span:hover {
+  color: var(--secoundry-yellow);
+}
+footer .lower .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-basis: 15%;
+}
+footer .lower .link:not(:first-child) {
+  margin-left: 12px;
+}
+footer .lower .link a {
+  transition: var(--main-transition);
+  color: var(--secoundry-color);
+}
+footer .lower .link a:hover {
+  color: var(--main-yellow);
+}
+@media (max-width: 685px) {
+  footer .top .left-side {
+    align-items: center;
+    flex-basis: 50%;
+  }
+  footer .top {
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer .top .middle-side {
+    flex-basis: calc(50% - 20px);
+  }
+  footer .top .middle-side {
+    flex-basis: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  footer .top .middle-side h3 {
+    width: auto;
+  }
+  footer .top .middle-side ul {
+    align-items: center;
+  }
+  footer .top .right-side h3 {
+    width: auto;
+  }
+  footer .top .right-side {
+    flex-basis: calc((100% - 20px));
+    align-items: center;
+  }
+  footer .top .left-side p {
+    text-align: center;
+  }
+}
+@media (max-width: 455px) {
+  footer .top .middle-side {
+    flex-basis: 100%;
+  }
+  footer .top .right-side {
+    flex-basis: 100%;
+  }
+  footer .top .left-side {
+    flex-basis: 100%;
+  }
+}
+/* footer end */
