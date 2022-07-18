@@ -433,6 +433,47 @@ body {
   }
 }
 /* hero end */
+/* objectives start */
+.objective {
+  background-color: #222222;
+}
+
+.objective .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 40px;
+}
+.objective h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+.objective p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.objective .state {
+  color: white;
+  margin-bottom: 40px;
+  text-align: center;
+  border-top: solid rgba(255, 255, 255, 0.224) 0.5px;
+  padding-top: 20px;
+}
+
+.objective .state i {
+  color: black;
+  background-color: var(--main-yellow);
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+/* objectives end */
+/* the team start */
+
+/* the team end */
 /* start learn start */
 .start-learn {
   margin: 50px 0 20px;
