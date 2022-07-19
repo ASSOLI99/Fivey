@@ -477,8 +477,6 @@ body {
 .our-team {
   margin: 100px 0;
 }
-.our-team .container {
-}
 .our-team .content {
   display: flex;
   flex-direction: column;
