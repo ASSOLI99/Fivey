@@ -347,42 +347,62 @@ body {
 /* main start */
 /* user form start */
 .user-form {
+  margin-top: 30px;
 }
 h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
 }
-form {
+.inputs-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-form .img-section {
+.inputs-form .img-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-form .img-section img {
+.inputs-form .img-section img {
+  height: 120px;
+  border-radius: 50%;
 }
-form .img-section input {
+.inputs-form .img-section input {
+  text-align: center;
+  margin: 15px 0;
 }
-form .details {
+.inputs-form .details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-form .details .field {
+.inputs-form .details .field {
+  display: flex;
 }
-form .details .field label {
+.inputs-form .details .field label {
 }
-form .details .field input {
+.inputs-form .details .field input {
 }
-form .about-user {
+.inputs-form .about-user {
 }
-form .about-user label {
+.inputs-form .about-user label {
 }
-form .about-user textarea {
+.inputs-form .about-user textarea {
 }
-form .links {
+.inputs-form .links {
 }
-form .links .hint {
+.inputs-form .links .hint {
 }
-form .link {
+.inputs-form .link {
 }
-form .link label {
+.inputs-form .link label {
 }
-form .link input {
+.inputs-form .link input {
 }
-form .submit {
+.inputs-form .submit {
 }
 /* user form end */
 /* main end */
