@@ -375,34 +375,101 @@ h1 {
 .inputs-form .details {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  margin: 40px 0px;
 }
 .inputs-form .details .field {
+  border-radius: 10px;
   display: flex;
+  width: 350px;
+  border: solid var(--main-yellow) 2px;
+  padding: 8px;
+  background: #f8f8f8;
 }
 .inputs-form .details .field label {
+  width: fit-content;
 }
 .inputs-form .details .field input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-left: 2px solid var(--main-yellow);
+  width: 200px;
+  margin-left: 10px;
+  padding: 3px 10px;
 }
 .inputs-form .about-user {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
 }
 .inputs-form .about-user label {
+  font-size: 20px;
 }
 .inputs-form .about-user textarea {
+  height: 100px;
+  width: 40%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border: solid 2px var(--main-yellow);
+  background-color: #f8f8f8;
+  border-radius: 15px;
 }
 .inputs-form .links {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .inputs-form .links .hint {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
 }
 .inputs-form .link {
+  border-radius: 10px;
+  display: flex;
+  width: 200px;
+  border: solid var(--main-yellow) 2px;
+  padding: 8px;
+  background: #f8f8f8;
 }
 .inputs-form .link label {
+  width: fit-content;
 }
 .inputs-form .link input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-left: 2px solid var(--main-yellow);
+  width: 160px;
+  margin-left: 10px;
+  padding: 3px 10px;
 }
 .inputs-form .submit {
+  padding: 8px 16px;
+  background-color: var(--main-yellow);
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  transition: var(--main-transition);
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.inputs-form .submit:hover {
+  background-color: var(--secoundry-yellow);
 }
 /* user form end */
 /* main end */
