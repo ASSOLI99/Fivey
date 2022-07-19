@@ -216,6 +216,10 @@ body {
   list-style: none;
   margin-bottom: 5px;
 }
+.burger-links li a {
+  color: black;
+  text-decoration: none;
+}
 .burger-menu {
   display: none;
 }
