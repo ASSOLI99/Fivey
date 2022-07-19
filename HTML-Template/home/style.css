@@ -283,8 +283,9 @@ body {
     border-radius: 5px 5px 5px 5px;
   }
   .show-burger {
-    display: block;
-    border-radius: 0px 5px 5px 5px;
+    transform: translate(75px, -20px) scale(100%);
+    border-radius: 5px 5px 5px 5px;
+    opacity: 100%;
   }
   .active-btn {
     color: var(--main-yellow) !important;
