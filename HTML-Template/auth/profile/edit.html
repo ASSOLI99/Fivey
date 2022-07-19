@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fivey</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <div class="left-nav">
+            <a href=""><img src="../../assets/images/logo-text.png" alt="logo-Image" /></a>
+        </div>
+        <div class="middle-nav">
+            <ul class="main-links">
+                <li><a href="../../home/index.html">Home</a></li>
+                <li>
+                    <span class="container-category">
+                        <span class="cat-btn">Courses <i class="fa-solid fa-angle-down"></i></span>
+                        <ul class="subCat">
+                            <li><a>adobe</a></li>
+                            <li><a>programing</a></li>
+                            <li><a>design</a></li>
+                            <li><a> UI&UX</a></li>
+                        </ul>
+                    </span>
+                </li>
+                <li><a>Watch</a></li>
+                <li><a href="../../create/index.html">Create</a></li>
+                <li><a href="../../about/index.html">About</a></li>
+            </ul>
+            <div class="burger-menu">
+                <span class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul class="burger-links">
+                    <li><a href="../../home/index.html">Home</a></li>
+                    <li>
+                        <span class="cat-btn">Courses <i class="fa-solid fa-angle-right"></i></i></span>
+                        <ul class="subCat">
+                            <li><a>adobe</a></li>
+                            <li><a>programing</a></li>
+                            <li><a>design</a></li>
+                            <li><a> UI&UX</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Watch</a></li>
+                    <li><a href="../../create/index.html">Create</a></li>
+                    <li><a href="../../about/index.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-nav">
+            <form method="GET" class="search">
+                <input type="search" placeholder="Search" />
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <!-- if login or not -->
+            <div class="login-cart">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <div class="auth-menu">
+                    <span><i class="fa-solid fa-user"></i></span>
+                    <ul class="auth-option">
+                        <li><a href="../../auth/profile/index.html">Profile</a></li>
+                        <li><a href="../../auth/login/index.html">Login</a></li>
+                        <li><a href="../../auth/signup/index.html">Signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-helper-top"></div>
+    <main>
+        <section class="user-form">
+            <div class="container">
+                <h1>Edit Your Profile</h1>
+                <form action="" method="POST">
+                    <div class="img-section">
+                        <img src="../../assets/images/myPic.jpeg" alt="">
+                        <input class="file-img" name="image" type="file">
+                    </div>
+                    <div class="details">
+                    <div class="field">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" name="fullName">
+                    </div>
+                    <div class="field">
+                        <label for="fullName">Phone</label>
+                        <input type="text" name="phone">
+                    </div>
+                     <div class="field">
+                        <label for="fullName">User Name</label>
+                        <input type="text" name="userName">
+                    </div>
+                    <div class="field">
+                        <label for="fullName">Password</label>
+                        <input type="password" name="password">
+                    </div>
+                    </div>
+                    <div class="about-user">
+                        <label for="about">About yourself</label>
+                        <textarea name="about" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="links">
+                        <p class="hint">if you keep it empty it will not appear in your profile</p>
+                        <div class="link">
+                            <label for="website">Website</label>
+                            <input type="text" name="website">
+                        </div>
+                        <div class="link">
+                            <label for="github">Github</label>
+                            <input type="text" name="github">
+                        </div>
+                        <div class="link">
+                            <label for="youtube">Youtube</label>
+                            <input type="text" name="youtube">
+                        </div>
+                        <div class="link">
+                            <label for="linkedin">linkedin</label>
+                            <input type="text" name="linkedin">
+                        </div>
+                        <div class="link">
+                            <label for="dribble">dribble</label>
+                            <input type="text" name="dribble">
+                        </div>
+                        <div class="link">
+                            <label for="instagram">Instagram</label>
+                            <input type="text" name="instagram">
+                        </div>
+                        <div class="link">
+                            <label for="facebook">Facebook</label>
+                            <input type="text" name="Facebook">
+                        </div>
+                        <div class="link">
+                            <label for="twitter">Twitter</label>
+                            <input type="text" name="twitter">
+                        </div>
+                    </div>
+                    <button class="submit">Update</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
