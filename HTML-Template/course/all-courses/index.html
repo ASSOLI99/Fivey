@@ -1,405 +1,702 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fivey</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
 
-    <nav class="main-nav">
-      <div class="left-nav">
-        <a href="../../home/index.html"
-          ><img src="../../assets/images/logo-text.png" alt="logo-Image"
-        /></a>
-      </div>
-      <div class="middle-nav">
-        <ul class="main-links">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fivey</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <nav class="main-nav">
+    <div class="left-nav">
+      <a href="../../home/index.html"><img src="../../assets/images/logo-text.png" alt="logo-Image" /></a>
+    </div>
+    <div class="middle-nav">
+      <ul class="main-links">
+        <li><a href="../../home/index.html">Home</a></li>
+        <li>
+          <span class="container-category">
+            <span class="cat-btn"><a href="./index.html">Courses</a> <i class="fa-solid fa-angle-down"></i></span>
+            <ul class="subCat">
+              <li><a>adobe</a></li>
+              <li><a>programing</a></li>
+              <li><a>design</a></li>
+              <li><a> UI&UX</a></li>
+            </ul>
+          </span>
+        </li>
+        <li><a>Watch</a></li>
+        <li><a href="../../create/index.html">Create</a></li>
+        <li><a href="../../about/index.html">About</a></li>
+      </ul>
+      <div class="burger-menu">
+        <span class="icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <ul class="burger-links">
           <li><a href="../../home/index.html">Home</a></li>
           <li>
-            <span class="container-category">
-              <span class="cat-btn"
-                ><a href="./index.html">Courses</a> <i class="fa-solid fa-angle-down"></i
-              ></span>
-              <ul class="subCat">
-                <li><a>adobe</a></li>
-                <li><a>programing</a></li>
-                <li><a>design</a></li>
-                <li><a> UI&UX</a></li>
-              </ul>
-            </span>
+            <span class="cat-btn">Courses <i class="fa-solid fa-angle-right"></i></i></span>
+            <ul class="subCat">
+              <li><a href="./index.html">All</a></li>
+              <li><a>adobe</a></li>
+              <li><a>programing</a></li>
+              <li><a>design</a></li>
+              <li><a> UI&UX</a></li>
+            </ul>
           </li>
           <li><a>Watch</a></li>
           <li><a href="../../create/index.html">Create</a></li>
           <li><a href="../../about/index.html">About</a></li>
         </ul>
-        <div class="burger-menu">
-          <span class="icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          <ul class="burger-links">
-            <li><a href="../../home/index.html">Home</a></li>
-            <li>
-              <span class="cat-btn"
-                >Courses <i class="fa-solid fa-angle-right"></i></i
-              ></span>
-              <ul class="subCat">
-                <li><a href="./index.html">All</a></li>
-                <li><a>adobe</a></li>
-                <li><a>programing</a></li>
-                <li><a>design</a></li>
-                <li><a> UI&UX</a></li>
-              </ul>
-            </li>
-            <li><a>Watch</a></li>
-            <li><a href="../../create/index.html">Create</a></li>
-            <li><a href="../../about/index.html">About</a></li>
+      </div>
+    </div>
+    <div class="right-nav">
+      <form method="GET" class="search">
+        <input type="search" placeholder="Search" />
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <!-- if login or not -->
+      <div class="login-cart">
+        <span><i class="fa-solid fa-cart-shopping"></i></span>
+        <div class="auth-menu">
+          <span><i class="fa-solid fa-user"></i></span>
+          <ul class="auth-option">
+            <li><a href="../../auth/profile/index.html">Profile</a></li>
+            <li><a href="../../auth/login/index.html">Login</a></li>
+            <li><a href="../../auth/signup/index.html">Signup</a></li>
           </ul>
         </div>
       </div>
-      <div class="right-nav">
-        <form method="GET" class="search">
-          <input type="search" placeholder="Search" />
-          <button type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-
-        <!-- if login or not -->
-        <div class="login-cart">
-          <span><i class="fa-solid fa-cart-shopping"></i></span>
-          <div class="auth-menu">
-          <span><i class="fa-solid fa-user"></i></span>
-              <ul class="auth-option">
-                <li><a href="../../auth/profile/index.html">Profile</a></li>
-                <li><a href="../../auth/login/index.html">Login</a></li>
-                <li><a href="../../auth/signup/index.html">Signup</a></li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-        <div class="nav-helper-top"></div>
-    <main>
-        <section class="filter">
-            <div class="container">
-                <div class="content">
-                    
-                </div>
-            </div>
-        </section>
-        <section class="courses-view">
-  <div class="container">
-    <div class="heading">
-<h2>Popular Courses</h2>
-
     </div>
-    
-    <div class="content">
-      <div class="card">
-        
-        <div class="img-container" style="background-image: url(../../assets/images/courses/mobile-app.jpg);">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-      <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/presentation.jpg)" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-      <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/mobile-app.jpg);" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-      <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/childe.jpg);" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-      <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/galaxy.jpg);" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-       <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/presentation.jpg);" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-       <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/galaxy.jpg);" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-       <div class="card">
-        
-        <div style="background-image: url(../../assets/images/courses/childe.jpg);" class="img-container">
-          <a href="#">see course</a>
-          <button>+</button>
-          
-        </div>
-        <div class="card-content">
-        <h3 class="title">
-        Mobile App Developer          
-        </h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
-        </p>
-        <hr>
-        <p class="course-details">
-          <span><i class="fa-solid fa-clock"></i> 5hr 21m</span> 
-          <span><i class="fa-solid fa-user-group"></i> 2312</span>
-        </p>
-        <p class="rating">
-          <span>1023:</span>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star-half-stroke"></i>
-          <i class="fa-regular fa-star"></i>
-        </p>
-      </div>
-
-      </div>
-    </div>
-    <button class="load-more">Load more</button>
-  </div>
-</section>
-<section class="category-cards">
-  <div class="container">
-    <div class="content">
-  <a href="#">
-  JS
-  </a>
-  <a href="#">
-  Laravel
-  </a>
-  <a href="#">
-  React
-  </a>
-  <a href="#">
-  Fluter
-  </a>
-  <a href="#">
-  Adobe Photoshop
-  </a>
-  <a href="#">
-  Marketing
-  </a>
-  <a href="">
-  Hacking
-  </a>
-  <a href="#">
-  Cooking
-  </a>
-  <a href="#">
-  Video making
-  </a>
-  <a href="#">
-  CSS
-  </a>
-    </div>
-  </div>
-</section>
-      </main>
-
-
-    <footer>
+  </nav>
+  <div class="nav-helper-top"></div>
+  <main>
+    <section class="filter">
       <div class="container">
         <div class="content">
-          <div class="top">
+          <div class="options">
+            <div class="option">
+              <p>Date</p>
+              <div class="buttons">
+                <span><i class="fa-solid fa-arrow-down-wide-short"></i></span>
+                <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+              </div>
+            </div>
+            <div class="option">
+              <p>Views</p>
+              <div class="buttons">
+                <span><i class="fa-solid fa-arrow-down-wide-short"></i></span>
+                <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+              </div>
+            </div>
+            <div class="option">
+              <p>Rating</p>
+              <div class="buttons">
+                <span><i class="fa-solid fa-arrow-down-wide-short"></i></span>
+                <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+              </div>
+            </div>
+            <div class="option">
+              <p>Duration</p>
+              <div class="buttons">
+                <span><i class="fa-solid fa-arrow-down-wide-short"></i></span>
+                <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>
+              </div>
+            </div>
+          </div>
+       
+        </div>
+      </div>
+         <div class="filtered-cat">
+            <span>
+              Laravel
+            </span>
+            <span>
+              React
+            </span>
+            <span>
+              Fluter
+            </span>
+            <span>
+              Photoshop
+            </span>
+            <span>
+              Marketing
+            </span>
+            <span>
+              Hacking
+            </span>
+            <span>
+              Cooking
+            </span>
+            <span>
+              object Orianted
+            </span>
+          </div>
+    </section>
+    <section class="courses-view">
+      <div class="container">
+        <div class="heading">
+          <h2>Popular Courses</h2>
+
+        </div>
+
+        <div class="content">
+          <div class="card">
+
+            <div class="img-container" style="background-image: url(../../assets/images/courses/mobile-app.jpg);">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/presentation.jpg)" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/mobile-app.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/childe.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/galaxy.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/presentation.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/galaxy.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/childe.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <button class="load-more">Load more</button>
+      </div>
+    </section>
+    <section class="category-cards">
+      <div class="container">
+        <div class="content">
+          <a href="#">
+            JS
+          </a>
+          <a href="#">
+            Laravel
+          </a>
+          <a href="#">
+            React
+          </a>
+          <a href="#">
+            Fluter
+          </a>
+          <a href="#">
+            Adobe Photoshop
+          </a>
+          <a href="#">
+            Marketing
+          </a>
+          <a href="">
+            Hacking
+          </a>
+          <a href="#">
+            Cooking
+          </a>
+          <a href="#">
+            Video making
+          </a>
+          <a href="#">
+            CSS
+          </a>
+        </div>
+      </div>
+    </section>
+        <section class="courses-view">
+      <div class="container">
+        <div class="heading">
+          <h2>Most Rated</h2>
+
+        </div>
+
+        <div class="content">
+          <div class="card">
+
+            <div class="img-container" style="background-image: url(../../assets/images/courses/mobile-app.jpg);">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/presentation.jpg)" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/mobile-app.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/childe.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/galaxy.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/presentation.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/galaxy.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+          <div class="card">
+
+            <div style="background-image: url(../../assets/images/courses/childe.jpg);" class="img-container">
+              <a href="#">see course</a>
+              <button>+</button>
+
+            </div>
+            <div class="card-content">
+              <h3 class="title">
+                Mobile App Developer
+              </h3>
+              <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim, commodi alias.
+              </p>
+              <hr>
+              <p class="course-details">
+                <span><i class="fa-solid fa-clock"></i> 5hr 21m</span>
+                <span><i class="fa-solid fa-user-group"></i> 2312</span>
+              </p>
+              <p class="rating">
+                <span>1023:</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <button class="load-more">Load more</button>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <div class="content">
+        <div class="top">
           <div class="left-side">
             <img src="../../assets/images/logo.png" alt="">
             <p>A learning platform powered by Abdullah Assoli</p>
@@ -409,10 +706,10 @@
             <h3>Popular Courses</h3>
             <ul class="popular-courses">
               <li class="course"><a href="#">Digital marketing</a></li>
-                              <li class="course"><a href="#">adobe</a></li>
-                <li class="course"><a href="#">programing</a></li>
-                <li class="course"><a href="#">design</a></li>
-                <li class="course"><a href="#"> UI&UX</a></li>
+              <li class="course"><a href="#">adobe</a></li>
+              <li class="course"><a href="#">programing</a></li>
+              <li class="course"><a href="#">design</a></li>
+              <li class="course"><a href="#"> UI&UX</a></li>
             </ul>
 
           </div>
@@ -424,19 +721,20 @@
               <p><b>phone:</b>+962778093279</p>
             </div>
           </div>
-          </div>
-          <div class="lower">
-            <p>copyright &copy; <span>Fivey</span> | Designed by <span>Assoli</span></p>
-            <ul class="links">
-              <li class="link"><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-              <li class="link"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-              <li class="link"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-              <li class="link"><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-            </ul>
-          </div>
+        </div>
+        <div class="lower">
+          <p>copyright &copy; <span>Fivey</span> | Designed by <span>Assoli</span></p>
+          <ul class="links">
+            <li class="link"><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+            <li class="link"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li class="link"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="link"><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-    <script src="./main.js"></script>
-  </body>
+    </div>
+  </footer>
+  <script src="./main.js"></script>
+</body>
+
 </html>

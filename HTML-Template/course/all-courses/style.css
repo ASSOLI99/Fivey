@@ -344,6 +344,71 @@ body {
 /* auth menu end */
 /* navbar end */
 /* main start */
+/* filter start */
+.filter {
+  background-color: #f3f3f3;
+  padding-top: 15px;
+}
+.filter .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.filter .options {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+.filter .option {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.filter .option p {
+  font-size: 16px;
+  text-align: center;
+}
+.filter .option .buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.filter .option .buttons span {
+  color: black;
+  border: 2px solid var(--main-yellow);
+  padding: 5px 7px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: var(--main-transition);
+}
+.filter .option .buttons span:hover {
+  color: var(--main-yellow);
+}
+.filtered-cat {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: revert;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: solid var(--main-yellow) 2px;
+  padding: 5px;
+  margin: 25px 0;
+  border-left: none;
+  border-right: none;
+}
+.filtered-cat span {
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.filtered-cat span:hover {
+  color: var(--main-yellow);
+}
+
+/* filter end */
 /* popular courses start */
 .courses-view .container {
   margin-top: 30px;
@@ -549,6 +614,7 @@ footer .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 }
 footer .top {
   display: flex;
