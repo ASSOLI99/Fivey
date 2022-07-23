@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fivey</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <nav class="main-nav">
+    <div class="left-nav">
+      <a href="../../home/index.html"><img src="../../assets/images/logo-text.png" alt="logo-Image" /></a>
+    </div>
+    <div class="middle-nav">
+      <ul class="main-links">
+        <li><a href="../../home/index.html">Home</a></li>
+        <li>
+          <span class="container-category">
+            <span class="cat-btn"><a href="../../course/all-courses/index.html">Courses</a> <i
+                class="fa-solid fa-angle-down"></i></span>
+            <ul class="subCat">
+              <li><a>adobe</a></li>
+              <li><a>programing</a></li>
+              <li><a>design</a></li>
+              <li><a> UI&UX</a></li>
+            </ul>
+          </span>
+        </li>
+        <li><a href="./index.html">Watch</a></li>
+        <li><a href="../../create/index.html">Create</a></li>
+        <li><a href="../../about/index.html">About</a></li>
+      </ul>
+      <div class="burger-menu">
+        <span class="icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <ul class="burger-links">
+          <li><a href="../../home/index.html">Home</a></li>
+          <li>
+            <span class="cat-btn"><a href="../../course/all-courses/index.html">Courses</a> <i
+                class="fa-solid fa-angle-right"></i></i></span>
+            <ul class="subCat">
+              <li><a>adobe</a></li>
+              <li><a>programing</a></li>
+              <li><a>design</a></li>
+              <li><a> UI&UX</a></li>
+            </ul>
+          </li>
+          <li><a href="./index.html">Watch</a></li>
+          <li><a href="../../create/index.html">Create</a></li>
+          <li><a href="../../about/index.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="right-nav">
+      <form method="GET" class="search">
+        <input type="search" placeholder="Search" />
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <!-- if login or not -->
+      <div class="login-cart">
+        <span><i class="fa-solid fa-cart-shopping"></i></span>
+        <div class="auth-menu">
+          <span><i class="fa-solid fa-user"></i></span>
+          <ul class="auth-option">
+            <li><a href="../../auth/profile/index.html">Profile</a></li>
+            <li><a href="../../auth/login/index.html">Login</a></li>
+            <li><a href="../../auth/signup/index.html">Signup</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-helper-top"></div>
+  <main>
+    <section class="course-details">
+      <div class="container">
+        <div class="content">
+          <img class="main-image" src="../../assets/images/video-image.jpg" alt="">
+          <div class="rated">
+            <p class="rating">
+              <span>(1023)</span>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <i class="fa-regular fa-star"></i>
+            </p>
+            <p class="difficulty">Intermediate</p>
+          </div>
+          <div class="pricing">
+            <button class="buy-btn">
+              Buy course
+            </button>
+            <button class="add-btn">
+              Add to cart
+            </button>
+          </div>
+          <div class="description">
+            <h2>The word and programing</h2>
+            <p class="detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita reprehenderit odit perferendis
+              quisquam obcaecati consequuntur magni soluta esse quod amet iure cupiditate corrupti dicta natus, laborum
+              odio optio earum eos laudantium explicabo? Deleniti nesciunt reiciendis incidunt aspernatur vitae quos
+              praesentium!
+            </p>
+            <div class="instructor">
+              <img src="../../assets/images/myPic.jpeg" alt="">
+              <div>
+                <h4>Abdullah Assoli</h4>
+                <p>Full-Stack Developer</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="course-content">
+              <div class="heading">
+                <h3>Course Content</h3>
+                <p>12 lecture <i class="fa-solid fa-circle"></i> 4 hours</p>
+              </div>
+              <div class="lectures">
+                <div class="lecture">
+                  <img src="../../assets/images/video-image.jpg" alt="">
+                  <div class="details">
+                    <p class="time"><i class="fa-solid fa-clock"></i> 03:12 mins</p>
+                    <h4>Intro</h4>
+                    <p class="about">Meet your instructor and learn about your course</p>
+                  </div>
+                  <p class="play-btn"><i class="fa-solid fa-circle-play"></i></p>
+                </div>
+                <div class="lecture">
+                  <img src="../../assets/images/video-image.jpg" alt="">
+                  <div class="details">
+                    <p class="time"><i class="fa-solid fa-clock"></i> 03:12 mins</p>
+                    <h4>The Programing</h4>
+                    <p class="about">Meet your instructor and learn about your course</p>
+                  </div>
+                  <p class="play-btn"><i class="fa-solid fa-circle-play"></i></p>
+                </div>
+                <div class="lecture">
+                  <img src="../../assets/images/video-image.jpg" alt="">
+                  <div class="details">
+                    <p class="time"><i class="fa-solid fa-clock"></i> 03:12 mins</p>
+                    <h4>The Word</h4>
+                    <p class="about">Meet your instructor and learn about your course</p>
+                  </div>
+                  <p class="play-btn"><i class="fa-solid fa-circle-play"></i></p>
+                </div>
+                <div class="lecture">
+                  <img src="../../assets/images/video-image.jpg" alt="">
+                  <div class="details">
+                    <p class="time"><i class="fa-solid fa-clock"></i> 03:12 mins</p>
+                    <h4>Intro</h4>
+                    <p class="about">Meet your instructor and learn about your course</p>
+                  </div>
+                  <p class="play-btn"><i class="fa-solid fa-circle-play"></i></p>
+                </div>
+                <div class="lecture">
+                  <img src="../../assets/images/video-image.jpg" alt="">
+                  <div class="details">
+                    <p class="time"><i class="fa-solid fa-clock"></i> 03:12 mins</p>
+                    <h4>The Programing</h4>
+                    <p class="about">Meet your instructor and learn about your course</p>
+                  </div>
+                  <p class="play-btn"><i class="fa-solid fa-circle-play"></i></p>
+                </div>
+                <div class="lecture">
+                  <img src="../../assets/images/video-image.jpg" alt="">
+                  <div class="details">
+                    <p class="time"><i class="fa-solid fa-clock"></i> 03:12 mins</p>
+                    <h4>The Word</h4>
+                    <p class="about">Meet your instructor and learn about your course</p>
+                  </div>
+                  <p class="play-btn"><i class="fa-solid fa-circle-play"></i></p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <div class="content">
+        <div class="top">
+          <div class="left-side">
+            <img src="../../assets/images/logo.png" alt="">
+            <p>A learning platform powered by Abdullah Assoli</p>
+            <a href="mailto:abdullahassoli@gmail.com">abdullahassoli@gmail.com</a>
+          </div>
+          <div class="middle-side">
+            <h3>Popular Courses</h3>
+            <ul class="popular-courses">
+              <li class="course"><a href="#">Digital marketing</a></li>
+              <li class="course"><a href="#">adobe</a></li>
+              <li class="course"><a href="#">programing</a></li>
+              <li class="course"><a href="#">design</a></li>
+              <li class="course"><a href="#"> UI&UX</a></li>
+            </ul>
+
+          </div>
+          <div class="right-side">
+            <h3>Contact Us</h3>
+            <div class="details">
+              <p><b>Adress:</b> Jordan,Amman</p>
+              <p><b>Email:</b><a href="mailto:abdullahassoli@gmail.com">abdullahassoli@gmail.com</a></p>
+              <p><b>phone:</b>+962778093279</p>
+            </div>
+          </div>
+        </div>
+        <div class="lower">
+          <p>copyright &copy; <span>Fivey</span> | Designed by <span>Assoli</span></p>
+          <ul class="links">
+            <li class="link"><a href="https://www.linkedin.com/in/abdullah-assoli-65674a224/"><i
+                  class="fa-brands fa-whatsapp"></i></a></li>
+            <li class="link"><a href="https://www.linkedin.com/in/abdullah-assoli-65674a224/"><i
+                  class="fa-brands fa-linkedin-in"></i></a></li>
+            <li class="link"><a href="https://www.linkedin.com/in/abdullah-assoli-65674a224/"><i
+                  class="fa-brands fa-facebook"></i></a></li>
+            <li class="link"><a href="https://www.linkedin.com/in/abdullah-assoli-65674a224/"><i
+                  class="fa-brands fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./main.js"></script>
+</body>
+
+</html>
