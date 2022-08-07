@@ -127,7 +127,13 @@ body {
 .right-nav .login-cart span {
   padding-right: 10px;
 }
-
+.linkCart {
+  color: black;
+  transition: var(--main-transition);
+}
+.linkCart:hover {
+  color: var(--main-yellow);
+}
 /* middle nav */
 .middle-nav {
   flex-basis: 60%;
