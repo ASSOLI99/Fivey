@@ -1,0 +1,39 @@
+:root {
+  --main-blue: #f8c600;
+  --main-transition: all 0.2s ease;
+  --secondary-text: #0000009c;
+}
+.main-text {
+  color: var(--main-blue);
+}
+/* global variables end */
+
+.side-bar h2 {
+  color: var(--main-blue);
+}
+.side-bar p {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #0000000d;
+}
+.side-bar p:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.side-bar a:hover span:first-child {
+  color: var(--main-blue);
+}
+.side-bar a span:last-child {
+  color: var(--secondary-text);
+}
+.side-bar a span:first-child {
+  transition: var(--main-transition);
+  font-size: 14px;
+}
+.cardWithImage {
+  position: relative;
+}
+
+.cardWithImage .img-handler {
+  position: relative;
+  width: 100%;
+}

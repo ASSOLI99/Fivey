@@ -1,0 +1,60 @@
+/* global variables start */
+:root {
+  --main-yellow: #f8c600;
+  --secondary-yellow: #ffd630;
+  --main-transition: all 0.2s ease;
+  --secondary-text: #0000009c;
+}
+
+/* global variables end */
+.social-li {
+  background-color: var(--secondary-text);
+}
+.social-page {
+  color: white;
+  transition: var(--main-transition);
+}
+.social-page:hover {
+  color: var(--main-yellow) !important;
+}
+.application {
+  background-color: var(--main-yellow);
+  transition: var(--main-transition);
+  box-shadow: 1px 1px 2px 2px var(--main-yellow);
+}
+/* @media (max-width: 770px) {
+  .application {
+    font-size: 12px;
+  }
+} */
+.application:hover {
+  background-color: var(--secondary-yellow);
+  box-shadow: 1px 1px 2px 2px var(--secondary-yellow);
+}
+.col2 a {
+  color: var(--secondary-text);
+  text-decoration: none;
+  font: 20px;
+  transition: var(--main-transition);
+}
+.col2 a:hover {
+  color: var(--main-yellow);
+}
+.col3 a {
+  color: var(--secondary-text);
+  text-decoration: none;
+  font: 20px;
+  transition: var(--main-transition);
+}
+.col3 a:hover {
+  color: var(--main-yellow);
+}
+.col4 a {
+  color: var(--secondary-text);
+  text-decoration: none;
+  font: 20px;
+  transition: var(--main-transition);
+}
+.col4 a:hover {
+  color: var(--main-yellow);
+}

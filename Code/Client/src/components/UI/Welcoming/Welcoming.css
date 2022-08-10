@@ -1,0 +1,35 @@
+.welcoming h1 {
+  font-size: 70px;
+  font-weight: bold;
+}
+.welcoming p {
+  color: rgba(0, 0, 0, 0.68);
+  font-size: 25px;
+}
+.welcoming span {
+  color: #f8c600;
+}
+@media (max-width: 765px) {
+  .welcoming h1 {
+    font-size: 50px;
+  }
+  .welcoming p {
+    font-size: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .welcoming h1 {
+    font-size: 30px;
+  }
+  .welcoming p {
+    font-size: 18px;
+  }
+}
+@media (max-width: 340px) {
+  .welcoming h1 {
+    font-size: 25px;
+  }
+  .welcoming p {
+    font-size: 16px;
+  }
+}

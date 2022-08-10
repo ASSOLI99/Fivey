@@ -1,0 +1,114 @@
+/* global variables start */
+:root {
+  --main-yellow: #f8c600;
+  --main-transition: all 0.2s ease;
+}
+.bg-main-blue {
+  background-color: var(--main-yellow);
+}
+/* global variables end */
+/* top nav bar and middle z-index start*/
+.top-nav {
+  height: 60px;
+  z-index: 11;
+}
+.back-nav {
+  height: 60px;
+  z-index: 10;
+}
+.navbar-expand .navbar-nav .dropdown-menu {
+  left: -70px;
+}
+
+/* top nav bar and middle z-index end*/
+/* middle navbar start */
+.middle-link {
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+}
+.middle-link:hover {
+  color: var(--main-yellow);
+}
+.activeDropNav:focus {
+  background-color: white;
+}
+.activeDropNav span {
+  color: var(--main-yellow);
+}
+.middle-navBar {
+  box-shadow: 0px 1px 20px 0px #0000002b;
+}
+.search-input {
+  padding-left: 50px;
+  box-sizing: border-box;
+  width: 400px;
+}
+.search-input:focus {
+  box-shadow: none;
+  border: solid 2px black;
+}
+.search-icon-input {
+  transform: translate(12px, 4px);
+  font-size: 20px;
+}
+.drop-categories {
+}
+.drop-categories .drop-btn {
+  background-color: var(--main-yellow);
+  border: none;
+  box-shadow: none;
+}
+.drop-categories .dropdown-menu {
+  transform: translateX(60px);
+}
+
+@media (max-width: 950px) {
+  .search-input {
+    width: 220px;
+    font-size: 13px;
+    padding-left: 35px;
+  }
+  .search-icon-input {
+    transform: translate(8px, 2px);
+    font-size: 20px;
+  }
+}
+/* middle navbar end */
+/* top navbar start */
+.white-drop-menu a::first-line {
+  color: white;
+}
+.white-drop-menu .dropdown-toggle::after {
+  color: white;
+}
+.user-drop-down button {
+  font-size: 25px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.user-drop-down button:hover {
+  background-color: transparent;
+}
+.user-drop-down button:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+.user-drop-down button::after {
+  font-size: 16px;
+}
+.user-drop-down div {
+  transform: translate(-120px, 10px);
+}
+/* top navbar end */
+/* bottom navbar start*/
+.navLink {
+  font-size: 12px !important;
+}
+.nav-icon {
+  font-size: 25px !important;
+}
+/* bottom navbar end */

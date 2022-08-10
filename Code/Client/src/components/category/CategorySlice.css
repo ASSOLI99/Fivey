@@ -1,0 +1,28 @@
+.slice {
+  position: relative;
+}
+.slice .cardWithImage {
+  box-shadow: 0px 1px 3px 0px #00000038;
+}
+.slice::after {
+  position: absolute;
+  content: "";
+  bottom: -5px;
+  left: 0px;
+  width: 90%;
+  height: 20px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px #00000038;
+  z-index: -1;
+}
+.slice::before {
+  position: absolute;
+  content: "";
+  bottom: -10px;
+  left: 0px;
+  width: 80%;
+  height: 20px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px #00000038;
+  z-index: -2;
+}
