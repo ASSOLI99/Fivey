@@ -20,13 +20,6 @@ const NavMenu = () => {
       setScroll(window.scrollY > 20);
     });
   }, []);
-  const subNavHandler = (e) => {
-    e.stopPropagation();
-    for (let i = 0; i < e.currentTarget.parentNode.children.length; i++) {
-      e.currentTarget.parentNode.children[i].classList.remove("activeDropNav");
-    }
-    e.currentTarget.classList.add("activeDropNav");
-  };
   return (
     <>
       {/* top navbar start */}
@@ -37,7 +30,7 @@ const NavMenu = () => {
         <Container fluid className="container-xl">
           <Navbar.Collapse className="d-flex justify-content-between ">
             <Navbar.Brand as={Link} to="/" className="fs-2 fw-bold text-light">
-              <img src={FiveyLogo} alt="" width="80px" />
+              <img src={FiveyLogo} alt="Logo" width="80px" />
             </Navbar.Brand>
             <Nav
               className="my-2 my-lg-0 d-flex align-items-center text-light"
@@ -65,7 +58,7 @@ const NavMenu = () => {
               >
                 <i className="bi bi-cart"></i>
               </Nav.Link>
-              <Dropdown className="user-drop-down d-none d-md-block">
+              <Dropdown className="user-drop-down">
                 <Dropdown.Toggle id="dropdown-button-dark-example1">
                   <i className="bi bi-person"></i>
                 </Dropdown.Toggle>
@@ -166,12 +159,12 @@ const NavMenu = () => {
                   </Dropdown>
                 </li>
                 <li>
-                  <Nav.Link as={Link} to="/" className="middle-link">
+                  <Nav.Link as={Link} to="/categories" className="middle-link">
                     Trending
                   </Nav.Link>
                 </li>
                 <li>
-                  <Nav.Link as={Link} to="/" className="middle-link">
+                  <Nav.Link as={Link} to="/categories" className="middle-link">
                     New Courses
                   </Nav.Link>
                 </li>
@@ -205,37 +198,36 @@ const NavMenu = () => {
       {/* middle nave end */}
 
       {/* bottom nave start */}
-      <Navbar bg="light" className="d-block d-md-none" fixed="bottom">
+      <Navbar
+        bg="light"
+        className="d-block d-md-none bottom-nav"
+        fixed="bottom"
+      >
         <Container fluid className="d-flex justify-content-around px-0">
           <Nav.Link as={Link} to="/">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-grid"></i>
             </span>
+            <span>Categories</span>
           </Nav.Link>
 
           <Nav.Link as={Link} to="/">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-search"></i>
             </span>
+            <span>Search</span>
           </Nav.Link>
           <Nav.Link as={Link} to="/">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-play-circle-fill"></i>
             </span>
+            <span>My Learnings</span>
           </Nav.Link>
           <Nav.Link as={Link} to="/">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-cart"></i>
             </span>
-          </Nav.Link>
-          <Nav.Link
-            as={Link}
-            to="/"
-            className="d-flex flex-column justify-content-center"
-          >
-            <span className="d-flex justify-content-center nav-icon">
-              <i className="bi bi-person-circle"></i>
-            </span>
+            <span>Cart</span>
           </Nav.Link>
         </Container>
       </Navbar>

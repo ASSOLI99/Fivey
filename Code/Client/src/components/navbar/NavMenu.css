@@ -105,10 +105,12 @@
 }
 /* top navbar end */
 /* bottom navbar start*/
-.navLink {
-  font-size: 12px !important;
-}
-.nav-icon {
+
+.bottom-nav .nav-icon {
   font-size: 25px !important;
+}
+.bottom-nav .nav-link span:last-child {
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.646);
 }
 /* bottom navbar end */

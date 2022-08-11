@@ -1,0 +1,401 @@
+/* globals sitting start */
+:root {
+  --main-yellow: #f8c600;
+  --main-transition: 0.3s ease;
+  --secoundry-color: gray;
+  --secoundry-yellow: #f9e107;
+}
+.about-page * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.about-page ul {
+  list-style: none;
+}
+.about-page a {
+  cursor: pointer;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.about-page .container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .about-page .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .about-page .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .about-page .container {
+    width: 1170px;
+  }
+}
+/* globals sitting end */
+/* main start */
+/* hero start */
+.about-page .hero {
+  background-color: #f9f9f9;
+}
+.about-page .hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.about-page .hero .heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.about-page .hero .heading h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.about-page .hero .heading p {
+  font-size: 13px;
+  color: var(--secoundry-color);
+  text-align: center;
+}
+.about-page .hero .content {
+  display: flex;
+  flex-direction: column;
+}
+.about-page .hero .content .top {
+  display: flex;
+  gap: 40px;
+}
+.about-page .hero .content .left-side {
+  flex-basis: 50%;
+  background-image: url(../images/about.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border-radius: 15px;
+}
+.about-page .hero .content .right-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-basis: 50%;
+}
+.about-page .block {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 3px 2px 13px 4px #0000000a;
+}
+.about-page .block h2 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.about-page .block h2 i {
+  padding: 10px;
+  background-color: var(--main-yellow);
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.about-page .block p {
+  color: var(--secoundry-color);
+  font-size: 12px;
+}
+.about-page .hero .content .bottom {
+  margin-top: 30px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+.about-page .hero .content .bottom a:last-child {
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+  border: #00000024 solid 0.5px;
+  box-shadow: 1px 3px 5px #f8c6006b;
+  transition: var(--main-transition);
+}
+.about-page .hero .content .bottom a:last-child:hover {
+  background: var(--main-yellow);
+  color: white;
+}
+.about-page .hero .content .bottom a:first-child {
+  padding: 10px 20px;
+  background-color: var(--main-yellow);
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  transition: var(--main-transition);
+}
+.about-page .hero .content .bottom a:first-child:hover {
+  box-shadow: 0px 0px 7px #f8c6006b;
+  background: white;
+  color: black;
+}
+@media (max-width: 620px) {
+  .about-page .hero .content .top {
+    flex-direction: column;
+  }
+  .about-page .hero .content .left-side {
+    flex-basis: auto;
+    height: 175px;
+    width: 100%;
+  }
+  .about-page .hero .heading {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .about-page .hero .content .bottom {
+    padding: 0px;
+  }
+  .about-page .hero .content .bottom a:first-child {
+    padding: 10px 8px;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+  .about-page .hero .content .bottom a:last-child {
+    padding: 10px 10px;
+    margin-right: 0px;
+  }
+}
+/* hero end */
+/* objectives start */
+.about-page .objective {
+  background-image: url(../images/objective.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.about-page .objective .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 40px;
+}
+.about-page .objective h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+.about-page .objective p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.about-page .objective .state {
+  color: white;
+  margin-bottom: 40px;
+  text-align: center;
+  border-top: solid rgba(255, 255, 255, 0.224) 0.5px;
+  padding-top: 20px;
+}
+
+.about-page .objective .state i {
+  color: black;
+  background-color: var(--main-yellow);
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+/* objectives end */
+/* the team start */
+.about-page .our-team {
+  margin: 100px 0;
+}
+.about-page .our-team .content {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+}
+.about-page .our-team .content::after {
+  content: "";
+  background-image: url(../images/theTeam.jpg);
+  background-size: cover;
+  filter: brightness(105%);
+  width: 90%;
+  height: 110%;
+  position: absolute;
+  border-radius: 22px;
+  z-index: -1;
+  transform: translateY(-15px);
+}
+.about-page .our-team .content h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.about-page .our-team .content p {
+  width: 70%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5em;
+}
+.about-page .cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 80px;
+}
+.about-page .card {
+  background-color: white;
+  flex-basis: 320px;
+  box-shadow: 0px 1px 8px 2px #00000021;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  padding: 80px 25px 25px;
+}
+.about-page .card img {
+  width: 35%;
+  position: absolute;
+  transform: translateY(-130px);
+  border-radius: 50%;
+  border: solid white 2px;
+}
+.about-page .card .top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-page .card .top h3 {
+  margin-bottom: 8px;
+}
+.about-page .card .top p {
+  color: var(--main-yellow);
+  font-size: 16px;
+}
+.about-page .card hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--secoundry-color);
+  margin: 15px 0;
+}
+.about-page .card .bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-page .card .bottom p {
+  width: 100%;
+  color: var(--secoundry-color);
+  margin-bottom: 15px;
+}
+.about-page .card .bottom a {
+  padding: 10px 20px;
+  background-color: var(--main-yellow);
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  transition: var(--main-transition);
+  box-shadow: 2px 3px 6px 1px #f8c60078;
+}
+.about-page .card .bottom a:hover {
+  background-color: var(--secoundry-yellow);
+}
+@media (max-width: 770px) {
+  .about-page .cards {
+    justify-content: space-around;
+    gap: 70px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+  }
+  .about-page .our-team .content::after {
+    width: 70%;
+  }
+}
+
+/* the team end */
+/* start learn start */
+.about-page .start-learn {
+  margin: 50px 0 20px;
+}
+.about-page .start-learn .content {
+  background-image: url(../images/objective.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+.about-page .start-learn .left-side {
+  color: white;
+  width: 60%;
+}
+.about-page .start-learn .left-side h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+.about-page .start-learn .left-side p {
+  font-size: 12px;
+  color: var(--secoundry-color);
+}
+.about-page .start-learn .right-side {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.about-page .start-learn .right-side a {
+  text-decoration: none;
+  position: absolute;
+  background-color: var(--main-yellow);
+  padding: 7px 11px;
+  transform: translate(10px, 10px);
+  border-radius: 25px;
+  color: white;
+  transition: var(--main-transition);
+}
+.about-page .start-learn .right-side a:hover {
+  background-color: var(--secoundry-yellow);
+}
+@media (max-width: 550px) {
+  .about-page .start-learn .content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 25px;
+  }
+  .about-page .start-learn .left-side {
+    text-align: center;
+    width: 100%;
+  }
+  .about-page .start-learn .right-side {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+}
+/* start learn end */
+/* main end */

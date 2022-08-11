@@ -22,7 +22,7 @@ const CardMenu = (props) => {
           <i className="bi bi-star"></i>
           <span className="text-secondary fs-6"> 12345</span>
         </Card.Text>
-        <Card.Text className="mt-0 mb-0 text-secondary fs-6">
+        <Card.Text className="mt-0 mb-0 text-secondary small-desc">
           An experienced React Developer has many advantages: he can efficiently
           multitask,
         </Card.Text>
