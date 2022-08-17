@@ -49,12 +49,12 @@ const NavMenu = () => {
                 title="Arabic"
                 id="navbarScrollingDropdown"
               >
-                <NavDropdown.Item as={Link} to="/lang-arb">
+                <NavDropdown.Item>
                   <span className="text-black">Arabic</span>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
 
-                <NavDropdown.Item as={Link} to="/lang-eng">
+                <NavDropdown.Item>
                   <span className="text-black">English</span>
                 </NavDropdown.Item>
               </NavDropdown>
@@ -71,7 +71,7 @@ const NavMenu = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/">
+                  <Dropdown.Item as={Link} to="/profile">
                     Profile
                   </Dropdown.Item>
                   <Dropdown.Divider />
@@ -188,8 +188,8 @@ const NavMenu = () => {
                   </Nav.Link>
                 </li>
                 <li>
-                  <Nav.Link as={Link} to="/Contact" className="middle-link">
-                    Contact Us
+                  <Nav.Link as={Link} to="/Create" className="middle-link">
+                    Add <i className="bi bi-plus-circle-dotted"></i>
                   </Nav.Link>
                 </li>
               </ul>

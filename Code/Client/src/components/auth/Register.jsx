@@ -7,9 +7,12 @@ const Register = () => {
     if (!e.target[0].value == "") {
       const api = {
         name: e.target[0].value,
-        email: e.target[1].value,
-        password: e.target[2].value,
+        userName: e.target[1].value,
+        email: e.target[2].value,
+        password: e.target[3].value,
+        password_confirmation: e.target[4].value,
       };
+      console.log(e.target[0]);
       axios.post("http://127.0.0.1:8000/api/register", api).then(() => {
         window.location.href = "http://localhost:5173/login";
       });
@@ -24,20 +27,36 @@ const Register = () => {
             <Form onSubmit={submitHandler}>
               <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label className="fw-bold">Name</Form.Label>
+                <Form.Control type="text" placeholder="Name" name="name" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label className="fw-bold">User Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter Name"
-                  name="name"
+                  placeholder="User Name"
+                  name="userName"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="fw-bold">Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label className="fw-bold">Email</Form.Label>
+                <Form.Control name="email" type="email" placeholder="Email" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label className="fw-bold">Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className="fw-bold">Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password_confirmation"
+                  placeholder="Confirm Password"
+                />
               </Form.Group>
               <Button variant="warning" type="submit">
                 Submit
