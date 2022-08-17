@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import "./auth.css";
 const Register = () => {
   const submitHandler = (e) => {
     e.preventDefault();
@@ -15,15 +16,37 @@ const Register = () => {
     }
   };
   return (
-    <form method="POST" onSubmit={submitHandler} style={{ marginTop: "20px" }}>
-      <input type="text" placeholder="Name" name="name" />
-      <br />
-      <input type="email" placeholder="Email" name="email" />
-      <br />
-      <input type="password" placeholder="Password" name="password" />
-      <br />
-      <button type="submit">Go</button>
-    </form>
+    <div className="auth">
+      <Container fluid className="container-xl">
+        <h1>SingUp</h1>
+        <Row>
+          <Col className="options col-12 col-md-8">
+            <Form onSubmit={submitHandler}>
+              <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label className="fw-bold">Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Name"
+                  name="name"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label className="fw-bold">Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className="fw-bold">Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+              </Form.Group>
+              <Button variant="warning" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 export default Register;
