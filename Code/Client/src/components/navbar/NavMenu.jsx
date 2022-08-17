@@ -9,6 +9,8 @@ import {
 } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../store/auth-slice";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./NavMenu.css";
@@ -20,6 +22,11 @@ const NavMenu = () => {
       setScroll(window.scrollY > 20);
     });
   }, []);
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(authActions.loggingOut());
+    localStorage.removeItem("token");
+  };
   return (
     <>
       {/* top navbar start */}
@@ -53,7 +60,7 @@ const NavMenu = () => {
               </NavDropdown>
               <Nav.Link
                 as={Link}
-                to="/"
+                to="/cart"
                 className="fs-4 text-light d-none d-md-block"
               >
                 <i className="bi bi-cart"></i>
@@ -72,9 +79,15 @@ const NavMenu = () => {
                     My Purchases
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item as={Link} to="/">
+                  <Dropdown.Item as={Link} to="/login">
                     Login
                   </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item as={Link} to="/register">
+                    Register
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 

@@ -1,7 +1,7 @@
 const Contact = () => {
   return (
     <>
-      <div class="page-banner-area">
+      <div className="page-banner-area">
         <div class="d-table">
           <div class="d-table-cell">
             <div class="container">
@@ -20,7 +20,7 @@ const Contact = () => {
       </div>
       {/* <!-- End Page Banner -->
         <!-- Start Contact Area --> */}
-      <section class="contact-area ptb-100">
+      <section className="contact-area ptb-100">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">
