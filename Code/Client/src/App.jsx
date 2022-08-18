@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "./store/auth-slice";
 import { useEffect } from "react";
 import axios from "axios";
-import NavMenu from "./components/navbar/NavMenu";
 
+import NavMenu from "./components/navbar/NavMenu";
 import FooterMenu from "./components/footer/FooterMenu";
 import Welcome from "./pages/Welcome";
 import About from "./pages/About";

@@ -14,9 +14,9 @@ class AuthController extends Controller
     public function register(Request $request){
         $request->validate([
             'name'=>['required','min:3'],
-            'userName'=>['required','min:3'],
-            'email'=>['required','email', Rule::unique('users','email')],
-            'password'=>'required|confirmed|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/'
+            'userName'=>['required','min:3',Rule::unique('users','userName')],
+            'email'=>['required','regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', Rule::unique('users','email')],
+            'password'=>'required|confirmed|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$_%^&*-.]).{8,}$/'
         ]);
         $user=User::create([
             'name'=>$request->input('name'),
@@ -44,10 +44,5 @@ class AuthController extends Controller
         public function user(){
         return Auth::user();
     }
-    //    public function logout(){
-    //     return response([
-    //         'message'=>'success',
-    //         'token'=>'token'
-    //     ]);
-    // }
+
 }
