@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class CategoryController extends Controller
 {
@@ -34,9 +37,33 @@ class CategoryController extends Controller
      * @param  \App\Http\Requests\StoreCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+         $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|string',
+                'description' => 'required|string',
+                'image' => 'required|max:5048|mimes:jpeg,jpg,png,jfif',
+            ]
+
+        );
+         if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+          $category = new Category();
+        if($request->hasFile('image')){
+             $image = $request->file('image');
+            $filename = time(). random_int(1,999) . random_int(1,999) . random_int(1,999) . '.'.$image->getClientOriginalExtension();
+            
+            $destinationPath = public_path('/img/category/');
+            $image->move($destinationPath, $filename);
+            $category->image = $filename;
+        }
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->save();
+        return response($category,201);
     }
 
     /**

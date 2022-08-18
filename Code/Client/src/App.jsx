@@ -17,6 +17,7 @@ import Register from "./components/auth/Register";
 //Admin pages
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
+import AdminCategories from "./Admin/components/categories/Categories";
 import "./App.css";
 
 function App() {
@@ -45,7 +46,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {role === 1 && <Navigate to={"/Admin"} />}
         {role === 0 && (
           <>
             <NavMenu />
@@ -65,6 +65,11 @@ function App() {
             <AdminNavMenu />
             <Routes>
               <Route exact path={"/Admin"} element={<AdminWelcome />} />
+              <Route
+                exact
+                path={"/Admin/category"}
+                element={<AdminCategories />}
+              />
             </Routes>
             <div className="helper d-block d-md-none"></div>
           </>

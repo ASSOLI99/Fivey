@@ -1,0 +1,31 @@
+.category {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
+    rgba(227, 216, 16, 0.249),
+    rgba(255, 166, 0, 0.183)
+  );
+  padding: 30px 0;
+}
+.options {
+  background-color: rgba(2, 2, 2, 0.708);
+  border-radius: 20px;
+  padding: 20px 10px;
+  color: white;
+}
+.options input {
+  box-shadow: 0 0 0 #f8c600;
+}
+.options input:focus {
+  border-color: #f8c600;
+  /* box-shadow: 0 0 0 #f8c600; */
+  box-shadow: 0 0 0 0.25rem #f8c600;
+}
+.options textarea {
+  box-shadow: 0 0 0 #f8c600;
+}
+.options textarea:focus {
+  border-color: #f8c600;
+  /* box-shadow: 0 0 0 #f8c600; */
+  box-shadow: 0 0 0 0.25rem #f8c600;
+}
