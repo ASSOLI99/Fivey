@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
@@ -18,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category=Category::select('id','name','description','image')->paginate(6);
+        return response($category,200 );
+        // $categories=Category::query()->orderByDesc('id')->paginate(6);
+        // return response($categories,200);
     }
 
     /**
@@ -39,6 +40,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // return response($request);
          $validator = Validator::make(
             $request->all(),
             [
@@ -72,9 +74,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+          $category = Category::where('id', $id)->get();
+          return response($category);
     }
 
     /**
@@ -95,9 +98,34 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request,$id)
     {
-        //
+        return response($request);
+    $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|string',
+                'description' => 'required|string',
+                'image' => 'required|max:5048|mimes:jpeg,jpg,png,jfif',
+            ]
+
+        );
+         if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+          $category = Category::find($id);
+        if($request->hasFile('image')){
+             $image = $request->file('image');
+            $filename = time(). random_int(1,999) . random_int(1,999) . random_int(1,999) . '.'.$image->getClientOriginalExtension();
+            
+            $destinationPath = public_path('/img/category/');
+            $image->move($destinationPath, $filename);
+            $category->image = $filename;
+        }
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->update();
+        return response($category,201);
     }
 
     /**
@@ -106,8 +134,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        return Category::where('id','=',$id)->delete();
     }
 }

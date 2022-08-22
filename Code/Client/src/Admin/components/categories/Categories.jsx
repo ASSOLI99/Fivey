@@ -1,8 +1,44 @@
+import "./categories.css";
 import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import "./categories.css";
+import Pagination from "react-js-pagination";
+import CardMenu from "../../../components/UI/card/CardMenu";
+import { Link } from "react-router-dom";
+
 const Categories = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const token = localStorage.getItem("token");
+  // async function getCategoriesData(pageNumber = 1) {
+
+  // }
+  const [page, setPage] = useState(1);
+  const [categories, setCategories] = useState({
+    data: ["Array", " Array"],
+    current_page: "",
+    per_page: "",
+    total: "",
+  });
+  useEffect(() => {
+    setIsLoading(true);
+    const url = `http://localhost:8000/api/categories?page=${page}`;
+    axios
+      .get(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setCategories(res.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.log(error);
+      });
+  }, [page]);
+  const pageNumber = (value) => {
+    setPage(value);
+  };
   const [backError, setBackError] = useState(false);
   const [imageData, setImageData] = useState("");
   const handleChange = (file) => {
@@ -17,7 +53,9 @@ const Categories = () => {
     const token = localStorage.getItem("token");
     axios
       .post("http://127.0.0.1:8000/api/categories/add", fData, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((res) => {
         console.log(res);
@@ -28,6 +66,8 @@ const Categories = () => {
         // setBackError(arr);
       });
   };
+  const { data, current_page, per_page, total } = categories;
+
   return (
     <div className="category">
       <Container fluid className="container-xl">
@@ -71,6 +111,42 @@ const Categories = () => {
               </p>
             </Form>
           </Col>
+        </Row>
+        <Row className="p-3 d-flex justify-content-center">
+          {!isLoading && (
+            <>
+              {data.map((category, index) => {
+                return (
+                  <Col className="col-lg-4 col-md-6 col-12" key={index}>
+                    <Link to={`${category.id}`}>
+                      <CardMenu
+                        hasRate={false}
+                        description={category.description}
+                        hasDetails={false}
+                        hasCart={false}
+                        secondDescription={false}
+                        cardImage={`http://localhost:8000/img/category/${category.image}`}
+                      />
+                    </Link>
+                  </Col>
+                );
+              })}
+            </>
+          )}
+          {isLoading && (
+            <div className="spinner-border text-warning" role="status"></div>
+          )}
+
+          <div className="d-flex justify-content-center mt-5">
+            <Pagination
+              activePage={Number(current_page)}
+              totalItemsCount={Number(total)}
+              itemsCountPerPage={Number(per_page)}
+              onChange={(pageNum) => {
+                pageNumber(pageNum);
+              }}
+            />
+          </div>
         </Row>
       </Container>
     </div>

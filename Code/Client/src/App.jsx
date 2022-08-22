@@ -5,6 +5,7 @@ import { userActions } from "./store/user-slice";
 import { useEffect } from "react";
 import axios from "axios";
 //user pages
+import "./Admin/components/categories/pagination.css";
 import NavMenu from "./components/navbar/NavMenu";
 import FooterMenu from "./components/footer/FooterMenu";
 import Welcome from "./pages/Welcome";
@@ -18,6 +19,7 @@ import Register from "./components/auth/Register";
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
 import AdminCategories from "./Admin/components/categories/Categories";
+import SingleCat from "./Admin/components/categories/SingleCat";
 import "./App.css";
 
 function App() {
@@ -64,12 +66,15 @@ function App() {
           <>
             <AdminNavMenu />
             <Routes>
-              <Route exact path={"/Admin"} element={<AdminWelcome />} />
-              <Route
-                exact
-                path={"/Admin/category"}
-                element={<AdminCategories />}
-              />
+              <Route path={"/Admin"}>
+                <Route index element={<AdminWelcome />} />
+                {/* element={<AdminWelcome />} */}
+                {/* element={<AdminCategories />} */}
+                <Route path={"category"}>
+                  <Route index element={<AdminCategories />} />
+                  <Route path={":id"} element={<SingleCat />} />
+                </Route>
+              </Route>
             </Routes>
             <div className="helper d-block d-md-none"></div>
           </>

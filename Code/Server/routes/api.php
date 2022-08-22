@@ -25,5 +25,7 @@ Route::middleware('auth:sanctum')->group(function(){
     // Route::get('/logout', [AuthController::class,'logout']);
     Route::post('/categories/add',[CategoryController::class,'store']);
     Route::put('/categories/edit/{id}',[CategoryController::class,'update']);
-    Route::delete('/categories/delete/{id}',[CategoryController::class,'delete']);
+    Route::delete('/categories/delete/{id}',[CategoryController::class,'destroy']);
+    Route::get('/categories',[CategoryController::class,'index']);
+    Route::get('/categories/{id}',[CategoryController::class,'show']);
 });
