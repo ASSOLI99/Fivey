@@ -21,12 +21,12 @@ import AdminNavMenu from "./Admin/components/navbar/NavMenu";
 import AdminCategories from "./Admin/components/categories/Categories";
 import SingleCat from "./Admin/components/categories/SingleCat";
 import AdminCourses from "./Admin/components/courses/Courses";
+import AdminSingleCourse from "./Admin/components/courses/SingleCourse";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.user.role);
-  const userName = useSelector((state) => state.user.name);
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -62,7 +62,7 @@ function App() {
                 </Route>
                 <Route path={"courses"}>
                   <Route index element={<AdminCourses />} />
-                  {/* <Route path={":id"} element={<SingleCat />} /> */}
+                  <Route path={":id"} element={<AdminSingleCourse />} />
                 </Route>
               </Route>
             </Routes>

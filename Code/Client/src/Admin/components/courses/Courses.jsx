@@ -11,10 +11,12 @@ import {
   Table,
 } from "react-bootstrap";
 import Pagination from "react-js-pagination";
-import CardMenu from "../../../components/UI/card/CardMenu";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Courses.css";
+
 const Courses = () => {
+  const userId = useSelector((state) => state.user.id);
   const [isLoading, setIsLoading] = useState(true);
   const token = localStorage.getItem("token");
   const [message, setMessage] = useState(false);
@@ -23,7 +25,7 @@ const Courses = () => {
 
   // }
   const [page, setPage] = useState(1);
-  const [categories, setCategories] = useState({
+  const [courses, setCourses] = useState({
     data: ["Array", " Array"],
     current_page: "",
     per_page: "",
@@ -31,13 +33,14 @@ const Courses = () => {
   });
   useEffect(() => {
     setIsLoading(true);
-    const url = `http://localhost:8000/api/categories?page=${page}`;
+    const url = `http://localhost:8000/api/courses?page=${page}`;
     axios
       .get(url, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        setCategories(res.data);
+        setCourses(res.data);
+        console.log(res.data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -59,9 +62,15 @@ const Courses = () => {
     fData.append("image", imageData);
     fData.append("name", e.target[0].value);
     fData.append("description", e.target[1].value);
+    fData.append("second_description", e.target[2].value);
+    fData.append("tags", e.target[3].value);
+    fData.append("language", e.target[4].value);
+    fData.append("user_id", e.target[5].value);
+    fData.append("category_id", e.target[6].value);
+    fData.append("time", e.target[7].value);
     const token = localStorage.getItem("token");
     axios
-      .post("http://127.0.0.1:8000/api/categories/add", fData, {
+      .post("http://127.0.0.1:8000/api/courses/add", fData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,27 +88,66 @@ const Courses = () => {
         }
       });
   };
-  const { data, current_page, per_page, total } = categories;
+  const { data, current_page, per_page, total } = courses;
 
   return (
     <div className="category">
       <Container fluid className="container-xl text-center">
-        <h1>Categories</h1>
+        <h1>Courses</h1>
         <Row className="d-flex justify-content-center text-start">
           <Col className="options col-12 col-md-9 col-lg-8 col-xl-6 ">
             <Form onSubmit={submitHandler}>
               <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label className="fw-bold">Name</Form.Label>
+                <Form.Label className="fw-bold">Course Name *</Form.Label>
                 <Form.Control type="text" placeholder="Name" name="name" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicDescription">
-                <Form.Label className="fw-bold">Description</Form.Label>
+                <Form.Label className="fw-bold">Description *</Form.Label>
                 <Form.Control
                   as="textarea"
                   type="text"
                   placeholder="Description"
                   name="description"
                 />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="formBasicSecond_description"
+              >
+                <Form.Label className="fw-bold">
+                  Second Description *
+                </Form.Label>
+                <Form.Control
+                  as="textarea"
+                  type="text"
+                  placeholder="Second Description"
+                  name="second_description"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="tags">
+                <Form.Label className="fw-bold">
+                  Tags space separated
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Design Marketing etc"
+                  name="tags"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="language">
+                <Form.Label className="fw-bold">language *</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Arabic"
+                  name="language"
+                />
+              </Form.Group>
+
+              <Form.Control type="hidden" value={userId} name="user_id" />
+              <Form.Control type="hidden" value="1" name="category_id" />
+              <Form.Group className="mb-3" controlId="time">
+                <Form.Label className="fw-bold">Expected Time *</Form.Label>
+                <Form.Control type="number" placeholder="20" name="time" />
               </Form.Group>
               <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>upload your image</Form.Label>
@@ -109,6 +157,7 @@ const Courses = () => {
                   name="image"
                 />
               </Form.Group>
+
               <Button variant="warning" type="submit">
                 Submit
               </Button>
@@ -133,36 +182,37 @@ const Courses = () => {
               <tr>
                 <th>id</th>
                 <th>image</th>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Course Name</th>
+                <th>User Name</th>
+                <th>State</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody className="overflow-hidden">
               {!isLoading && (
                 <>
-                  {data.map((category, index) => {
+                  {data.map((courses, index) => {
                     return (
                       <tr key={index}>
-                        <td>{category.id}</td>
+                        <td>{courses.course_id}</td>
                         <td>
                           <img
-                            src={`http://localhost:8000/img/category/${category.image}`}
-                            width="80px"
+                            className="img-fluid"
+                            src={`http://localhost:8000/img/course/${courses.course_image}`}
+                            width="70px"
                           />
                         </td>
-                        <td>{category.name}</td>
-                        <td className="overflow-hidden">
-                          {category.description.length > 51
-                            ? `${category.description.slice(0, 50)}...`
-                            : category.description}
+                        <td>{courses.user_name}</td>
+                        <td>{courses.course_name}</td>
+                        <td>
+                          {courses.course_state == 0 ? "Hidden" : "Active"}
                         </td>
                         <td>
                           <Link
-                            to={`${category.id}`}
+                            to={`${courses.course_id}`}
                             className="btn btn-warning"
                           >
-                            Edit/Delete
+                            Edit
                           </Link>
                         </td>
                       </tr>

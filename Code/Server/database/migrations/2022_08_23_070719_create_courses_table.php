@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('tags');
             $table->smallInteger('state')->default(0);
             $table->integer('time');
+            $table->string("image");
             $table->string('language');
             $table->timestamps();
         });
