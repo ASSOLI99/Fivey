@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,16 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//public
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/categoriesAll', [CategoryController::class, 'allCat']);
+Route::get('/courses/{id}', [CourseController::class, 'show']);
 
-Route::post('/register', [AuthController::class,'register']);
-Route::post('/login', [AuthController::class,'login']);
 //privet
-Route::middleware('auth:sanctum')->group(function(){
-    Route::get('/user', [AuthController::class,'user']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [AuthController::class, 'user']);
     // Route::get('/logout', [AuthController::class,'logout']);
-    Route::post('/categories/add',[CategoryController::class,'store']);
-    Route::put('/categories/edit/{id}',[CategoryController::class,'update']);
-    Route::delete('/categories/delete/{id}',[CategoryController::class,'destroy']);
-    Route::get('/categories',[CategoryController::class,'index']);
-    Route::get('/categories/{id}',[CategoryController::class,'show']);
+    //section _\|/_ category
+    Route::post('/categories/add', [CategoryController::class, 'store']);
+    Route::put('/categories/edit/{id}', [CategoryController::class, 'update']);
+    Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy']);
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/categories/{id}', [CategoryController::class, 'show']);
+    //section _\|/_ courses
+    Route::post('/courses/add', [CourseController::class, 'store']);
+    Route::put('/courses/edit/{id}', [CourseController::class, 'update']);
 });

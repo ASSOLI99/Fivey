@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "./store/auth-slice";
 import { userActions } from "./store/user-slice";
@@ -20,13 +20,13 @@ import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
 import AdminCategories from "./Admin/components/categories/Categories";
 import SingleCat from "./Admin/components/categories/SingleCat";
+import AdminCourses from "./Admin/components/courses/Courses";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  console.log(useSelector((state) => state.loggedIn.loggedIn));
   const role = useSelector((state) => state.user.role);
-  console.log(useSelector((state) => state.user));
+  const userName = useSelector((state) => state.user.name);
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -48,21 +48,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {role === 0 && (
-          <>
-            <NavMenu />
-            <Routes>
-              <Route exact path={"/"} element={<Welcome />} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/categories" element={<Categories />} />
-              <Route exact path="/course" element={<SingleCourse />} />
-              <Route exact path="/cart" element={<Cart />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
-            </Routes>
-          </>
-        )}
-        {role === 1 && (
+        {role === 0 ? (
           <>
             <AdminNavMenu />
             <Routes>
@@ -74,12 +60,29 @@ function App() {
                   <Route index element={<AdminCategories />} />
                   <Route path={":id"} element={<SingleCat />} />
                 </Route>
+                <Route path={"courses"}>
+                  <Route index element={<AdminCourses />} />
+                  {/* <Route path={":id"} element={<SingleCat />} /> */}
+                </Route>
               </Route>
             </Routes>
             <div className="helper d-block d-md-none"></div>
           </>
+        ) : (
+          <>
+            <NavMenu />
+            <Routes>
+              <Route exact path={"/"} element={<Welcome />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/categories" element={<Categories />} />
+              <Route exact path="/course/:id" element={<SingleCourse />} />
+              <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/register" element={<Register />} />
+            </Routes>
+            <FooterMenu />
+          </>
         )}
-        {role === 0 && <FooterMenu />}
       </BrowserRouter>
     </div>
   );

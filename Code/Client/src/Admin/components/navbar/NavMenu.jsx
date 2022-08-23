@@ -28,95 +28,54 @@ const NavMenu = () => {
         <Container fluid className="container-xl">
           <Navbar.Collapse>
             <Nav
-              className="me-auto my-2 my-lg-0 d-flex align-items-center"
+              className="full-nav-width justify-content-center my-2 my-lg-0 d-flex align-items-center"
               navbarScroll
             >
-              <ul className="d-flex list-unstyled align-items-center p-0 m-0 justify-content-start">
+              <ul className="d-flex list-unstyled align-items-center p-0 m-0 justify-content-center">
                 <li>
-                  <Dropdown className="drop-categories">
-                    <Dropdown.Toggle className="drop-btn" id="dropdown-basic">
-                      All Corses
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/PhotoShop"
-                        className="text-decoration-none text-dark"
-                      >
-                        PhotoShop
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/Laravel"
-                        className="text-decoration-none text-dark"
-                      >
-                        Laravel
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </li>
-                <li>
-                  <Nav.Link as={Link} to="/categories" className="middle-link">
-                    Trending
+                  <Nav.Link
+                    as={Link}
+                    to="/Admin/category"
+                    className="middle-link"
+                  >
+                    <i className="bi bi-grid"></i> Category
                   </Nav.Link>
                 </li>
                 <li>
-                  <Nav.Link as={Link} to="/categories" className="middle-link">
-                    New Courses
+                  <Nav.Link
+                    as={Link}
+                    to="/Admin/courses"
+                    className="middle-link"
+                  >
+                    <i className="bi bi-camera-video-fill"></i> Courses
                   </Nav.Link>
                 </li>
 
                 <li>
-                  <Nav.Link as={Link} to="/About" className="middle-link">
-                    About Us
+                  <Nav.Link
+                    as={Link}
+                    to="/Admin/message"
+                    className="middle-link"
+                  >
+                    <i className="bi bi-chat-quote"></i> Message
                   </Nav.Link>
                 </li>
                 <li>
-                  <Nav.Link as={Link} to="/Create" className="middle-link">
-                    Add <i className="bi bi-plus-circle-dotted"></i>
+                  <Nav.Link as={Link} to="/Admin/users" className="middle-link">
+                    <i className="bi bi-person-circle"></i> Users
+                  </Nav.Link>
+                </li>
+                <li>
+                  <Nav.Link
+                    as={Link}
+                    to="/Admin/message"
+                    className="middle-link"
+                  >
+                    <i className="bi bi-coin"></i> Revenue
                   </Nav.Link>
                 </li>
               </ul>
             </Nav>
-            <Form className="position-relative">
-              <span className="position-absolute search-icon-input">
-                <i className="bi bi-search"></i>
-              </span>
-              <Form.Control
-                type="search"
-                placeholder="Search Fivey"
-                aria-label="Search"
-                className="search-input"
-              />
-            </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -124,35 +83,35 @@ const NavMenu = () => {
 
       {/* bottom nave start */}
       <Navbar
-        bg="light"
+        bg="white"
         className="d-block d-md-none bottom-nav"
         fixed="bottom"
       >
         <Container fluid className="d-flex justify-content-around px-0">
-          <Nav.Link as={Link} to="/">
-            <span className="d-flex justify-content-center nav-icon">
+          <Nav.Link className="icon-link" as={Link} to="/Admin/category">
+            <span className="icon-link d-flex justify-content-center nav-icon">
               <i className="bi bi-grid"></i>
             </span>
-            <span>Categories</span>
           </Nav.Link>
-
-          <Nav.Link as={Link} to="/">
-            <span className="d-flex justify-content-center nav-icon">
-              <i className="bi bi-search"></i>
+          <Nav.Link className="icon-link" as={Link} to="/Admin/users">
+            <span className="icon-link d-flex justify-content-center nav-icon">
+              <i className="bi bi-person-circle"></i>
             </span>
-            <span>Search</span>
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/Admin/courses">
             <span className="d-flex justify-content-center nav-icon">
-              <i className="bi bi-play-circle-fill"></i>
+              <i className="bi bi-camera-video-fill"></i>
             </span>
-            <span>My Learnings</span>
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/Admin/message">
             <span className="d-flex justify-content-center nav-icon">
-              <i className="bi bi-cart"></i>
+              <i className="bi bi-chat-quote"></i>
             </span>
-            <span>Cart</span>
+          </Nav.Link>
+          <Nav.Link as={Link} to="/Admin/revenue">
+            <span className="d-flex justify-content-center nav-icon">
+              <i className="bi bi-coin"></i>
+            </span>
           </Nav.Link>
         </Container>
       </Navbar>

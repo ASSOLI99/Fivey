@@ -13,8 +13,8 @@ import {
 import Pagination from "react-js-pagination";
 import CardMenu from "../../../components/UI/card/CardMenu";
 import { Link } from "react-router-dom";
-import "./categories.css";
-const Categories = () => {
+import "./Courses.css";
+const Courses = () => {
   const [isLoading, setIsLoading] = useState(true);
   const token = localStorage.getItem("token");
   const [message, setMessage] = useState(false);
@@ -192,4 +192,4 @@ const Categories = () => {
     </div>
   );
 };
-export default Categories;
+export default Courses;

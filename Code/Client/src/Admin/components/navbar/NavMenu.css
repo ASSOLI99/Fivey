@@ -23,7 +23,7 @@
 /* middle navbar start */
 .middle-link {
   color: black;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
 }
 .middle-link:hover {
@@ -38,49 +38,14 @@
 .middle-navBar {
   box-shadow: 0px 1px 20px 0px #0000002b;
 }
-.search-input {
-  padding-left: 50px;
-  box-sizing: border-box;
-  width: 400px;
-}
-.search-input:focus {
-  box-shadow: none;
-  border: solid 2px black;
-}
-.search-icon-input {
-  transform: translate(12px, 4px);
-  font-size: 20px;
-}
-.drop-categories {
-}
-.drop-categories .drop-btn {
-  background-color: var(--main-yellow);
-  border: none;
-  box-shadow: none;
-}
-.drop-categories .dropdown-menu {
-  transform: translateX(60px);
-}
-
-@media (max-width: 950px) {
-  .search-input {
-    width: 220px;
-    font-size: 13px;
-    padding-left: 35px;
-  }
-  .search-icon-input {
-    transform: translate(8px, 2px);
-    font-size: 20px;
-  }
+.full-nav-width {
+  width: 100%;
 }
 /* middle navbar end */
 /* bottom navbar start*/
 
-.bottom-nav .nav-icon {
+.bottom-nav .icon-link {
   font-size: 25px !important;
 }
-.bottom-nav .nav-link span:last-child {
-  font-size: 12px !important;
-  color: rgba(0, 0, 0, 0.646);
-}
+
 /* bottom navbar end */
