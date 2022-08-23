@@ -35,7 +35,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/categories/{id}', [CategoryController::class, 'show']);
     //section _\|/_ courses
     Route::get('/courses', [CourseController::class, 'index']);
-    Route::get('/courses/{id}', [CourseController::class, 'showOne']);
+    // Route::get('/courses/{id}', [CourseController::class, 'showOne']);
     Route::post('/courses/add', [CourseController::class, 'store']);
     Route::put('/courses/edit/{id}', [CourseController::class, 'update']);
     Route::delete('/courses/delete/{id}', [CourseController::class, 'destroy']);

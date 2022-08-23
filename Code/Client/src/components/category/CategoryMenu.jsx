@@ -23,10 +23,10 @@ const CategoryMenu = (props) => {
         {props.isLoading && (
           <div className="spinner-border text-warning ms-5" role="status"></div>
         )}
-        <Row>
+        <Row className="d-flex justify-content-center">
           {allCourses.map((course, index) => {
             return (
-              <Col key={index} className="col-12 col-sm-6 col-xl-3">
+              <Col key={index} className="col-12 col-sm-6 col-md-4  col-xl-3">
                 <Link
                   to={`/course/${course.id}`}
                   className="text-decoration-none"

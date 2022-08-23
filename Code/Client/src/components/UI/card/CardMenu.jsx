@@ -17,7 +17,7 @@ const CardMenu = (props) => {
       <div className="img-handler">
         <Card.Img
           variant="top"
-          style={{ maxHeight: "220px" }}
+          style={{ maxHeight: "200px" }}
           src={`${props.cardImage}`}
         />
         {props.secondDescription && (

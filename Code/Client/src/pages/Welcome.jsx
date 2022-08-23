@@ -13,6 +13,7 @@ const Welcome = () => {
     axios.get("http://127.0.0.1:8000/api/categoriesAll").then((res) => {
       console.log(res.data);
       setAllCategory(res.data);
+      // console.log(res.data);
     });
   }, []);
 
