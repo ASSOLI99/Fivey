@@ -21,11 +21,12 @@ const SingleCourse = () => {
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/courses/${id}`, {
+      .get(`http://127.0.0.1:8000/api/courses/admin/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
         setCategoryData(res.data[0]);
+        console.log(res.data[0]);
         setTitle(res.data[0].name);
         setDescription(res.data[0].description);
         setSecondDescription(res.data[0].second_description);
@@ -135,7 +136,7 @@ const SingleCourse = () => {
         <Row className="d-flex justify-content-center">
           <Col className="col-10 col-sm-6 col-lg-3 mt-5">
             <CardMenu
-              hasRate={categoryData.rate}
+              hasRate={4}
               description={categoryData.description}
               title={categoryData.name}
               hasDetails={true}

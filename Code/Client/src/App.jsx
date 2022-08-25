@@ -22,6 +22,7 @@ import AdminCategories from "./Admin/components/categories/Categories";
 import SingleCat from "./Admin/components/categories/SingleCat";
 import AdminCourses from "./Admin/components/courses/Courses";
 import AdminSingleCourse from "./Admin/components/courses/SingleCourse";
+import AdminUsers from "./Admin/components/users/Users";
 import "./App.css";
 
 function App() {
@@ -62,7 +63,11 @@ function App() {
                 </Route>
                 <Route path={"courses"}>
                   <Route index element={<AdminCourses />} />
-                  <Route path={":id"} element={<AdminSingleCourse />} />
+                  {/* <Route path={":id"} element={<AdminSingleCourse />} /> */}
+                </Route>
+                <Route path={"users"}>
+                  <Route index element={<AdminUsers />} />
+                  {/* <Route path={":id"} element={<AdminSingleCourse />} /> */}
                 </Route>
               </Route>
             </Routes>
