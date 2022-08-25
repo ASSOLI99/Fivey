@@ -16,6 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./NavMenu.css";
 import FiveyLogo from "./Fivey-navbar.png";
 const NavMenu = () => {
+  const role = useSelector((state) => state.user.role);
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -26,6 +27,7 @@ const NavMenu = () => {
   const logoutHandler = () => {
     dispatch(authActions.loggingOut());
     localStorage.removeItem("token");
+    location.reload();
   };
   return (
     <>
@@ -58,36 +60,54 @@ const NavMenu = () => {
                   <span className="text-black">English</span>
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link
-                as={Link}
-                to="/cart"
-                className="fs-4 text-light d-none d-md-block"
-              >
-                <i className="bi bi-cart"></i>
-              </Nav.Link>
+              {role && (
+                <Nav.Link
+                  as={Link}
+                  to="/cart"
+                  className="fs-4 text-light d-none d-md-block"
+                >
+                  <i className="bi bi-cart"></i>
+                </Nav.Link>
+              )}
+
               <Dropdown className="user-drop-down">
                 <Dropdown.Toggle id="dropdown-button-dark-example1">
                   <i className="bi bi-person"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/profile">
-                    Profile
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item as={Link} to="/">
-                    My Purchases
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item as={Link} to="/login">
-                    Login
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item as={Link} to="/register">
-                    Register
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
+                  {role && (
+                    <>
+                      <Dropdown.Item as={Link} to="/profile">
+                        Profile
+                      </Dropdown.Item>
+                      <Dropdown.Divider />
+                    </>
+                  )}
+                  {role && (
+                    <>
+                      <Dropdown.Item as={Link} to="/">
+                        My Purchases
+                      </Dropdown.Item>
+                      <Dropdown.Divider />
+                    </>
+                  )}
+                  {!role && (
+                    <>
+                      <Dropdown.Item as={Link} to="/login">
+                        Login
+                      </Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item as={Link} to="/register">
+                        Register
+                      </Dropdown.Item>
+                    </>
+                  )}
+                  {role && (
+                    <Dropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </Dropdown.Item>
+                  )}
                 </Dropdown.Menu>
               </Dropdown>
 
@@ -187,11 +207,19 @@ const NavMenu = () => {
                     About Us
                   </Nav.Link>
                 </li>
-                <li>
-                  <Nav.Link as={Link} to="/Create" className="middle-link">
-                    Add <i className="bi bi-plus-circle-dotted"></i>
-                  </Nav.Link>
-                </li>
+                {role == 2 ? (
+                  <li>
+                    <Nav.Link as={Link} to="/Create" className="middle-link">
+                      Add <i className="bi bi-plus-circle-dotted"></i>
+                    </Nav.Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Nav.Link as={Link} to="/watch" className="middle-link">
+                      watch <i className="bi bi-play-circle"></i>
+                    </Nav.Link>
+                  </li>
+                )}
               </ul>
             </Nav>
             <Form className="position-relative">
@@ -236,6 +264,7 @@ const NavMenu = () => {
             </span>
             <span>My Learnings</span>
           </Nav.Link>
+
           <Nav.Link as={Link} to="/">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-cart"></i>

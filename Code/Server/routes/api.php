@@ -43,5 +43,10 @@ Route::middleware('auth:sanctum')->group(function () {
     //section _\|/_ users
     Route::get('/users', [AuthController::class, 'allUsers']);
     Route::post('/users/add', [AuthController::class, 'store']);
+    Route::get('/user/admin/{id}', [AuthController::class, 'showOne']);
+    Route::delete('/user/delete/{id}', [AuthController::class, 'destroy']);
+    Route::get('/user/admin/courses/{id}', [AuthController::class, 'showOneCourses']);
+    Route::put('/user/edit/{id}', [AuthController::class, 'update']);
+    Route::get('/user/{id}', [AuthController::class, 'show']);
 
 });

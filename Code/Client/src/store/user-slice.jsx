@@ -9,6 +9,12 @@ const userSlice = createSlice({
     userName: "",
     email: "",
     image: "",
+    field: "",
+    youtube: "",
+    linkedin: "",
+    facebook: "",
+    phone: "",
+    description: "",
   },
   reducers: {
     setId(state, actions) {
@@ -28,6 +34,24 @@ const userSlice = createSlice({
     },
     setImage(state, actions) {
       state.image = actions.payload;
+    },
+    setField(state, actions) {
+      state.field = actions.payload;
+    },
+    setDescription(state, actions) {
+      state.description = actions.payload;
+    },
+    setFacebook(state, actions) {
+      state.facebook = actions.payload;
+    },
+    setPhone(state, actions) {
+      state.phone = actions.payload;
+    },
+    setLinkedin(state, actions) {
+      state.linkedin = actions.payload;
+    },
+    setYoutube(state, actions) {
+      state.youtube = actions.payload;
     },
   },
 });

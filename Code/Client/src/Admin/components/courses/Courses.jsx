@@ -202,8 +202,9 @@ const Courses = () => {
                             width="70px"
                           />
                         </td>
-                        <td>{courses.user_name}</td>
                         <td>{courses.course_name}</td>
+                        <td>{courses.user_name}</td>
+
                         <td>
                           {courses.course_state == 0 ? "Hidden" : "Active"}
                         </td>

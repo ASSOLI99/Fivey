@@ -19,8 +19,14 @@ return new class extends Migration
             $table->string('userName')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('description')->default("");
             $table->string('image')->nullable();
             $table->tinyInteger("role")->default(1);
+            $table->tinyInteger("field")->default("");
+            $table->tinyInteger("linkedin")->default("");
+            $table->tinyInteger("youtube")->default("");
+            $table->tinyInteger("facebook")->default("");
+            $table->tinyInteger("phone")->default("");
             $table->timestamps();
         });
     }

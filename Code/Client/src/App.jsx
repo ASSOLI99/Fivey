@@ -15,6 +15,8 @@ import SingleCourse from "./pages/SingleCourse";
 import Cart from "./pages/Cart";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Profile from "./components/profile/Profile";
+import EditProfile from "./components/profile/EditProfile";
 //Admin pages
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
@@ -23,6 +25,8 @@ import SingleCat from "./Admin/components/categories/SingleCat";
 import AdminCourses from "./Admin/components/courses/Courses";
 import AdminSingleCourse from "./Admin/components/courses/SingleCourse";
 import AdminUsers from "./Admin/components/users/Users";
+import AdminSingleUser from "./Admin/components/users/SingleUser";
+import AdminUserCourses from "./Admin/components/users/SingleCourses";
 import "./App.css";
 
 function App() {
@@ -44,6 +48,13 @@ function App() {
         dispatch(userActions.setUserName(res.data.userName));
         dispatch(userActions.setEmail(res.data.email));
         dispatch(userActions.setImage(res.data.image));
+        dispatch(userActions.setField(res.data.field));
+        dispatch(userActions.setPhone(res.data.phone));
+        dispatch(userActions.setFacebook(res.data.facebook));
+        dispatch(userActions.setYoutube(res.data.youtube));
+        dispatch(userActions.setLinkedin(res.data.linkedin));
+        dispatch(userActions.setDescription(res.data.description));
+        dispatch(userActions.setUserName(res.data.userName));
       });
   }, []);
   return (
@@ -63,11 +74,12 @@ function App() {
                 </Route>
                 <Route path={"courses"}>
                   <Route index element={<AdminCourses />} />
-                  {/* <Route path={":id"} element={<AdminSingleCourse />} /> */}
+                  <Route path={":id"} element={<AdminSingleCourse />} />
                 </Route>
                 <Route path={"users"}>
                   <Route index element={<AdminUsers />} />
-                  {/* <Route path={":id"} element={<AdminSingleCourse />} /> */}
+                  <Route path={":id"} element={<AdminSingleUser />} />
+                  <Route path={":user/:id"} element={<AdminUserCourses />} />
                 </Route>
               </Route>
             </Routes>
@@ -81,9 +93,22 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/categories" element={<Categories />} />
               <Route exact path="/course/:id" element={<SingleCourse />} />
-              <Route exact path="/cart" element={<Cart />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
+
+              {!role && (
+                <>
+                  <Route exact path="/login" element={<Login />} />
+                  <Route exact path="/register" element={<Register />} />
+                </>
+              )}
+              {role && (
+                <>
+                  <Route exact path="/cart" element={<Cart />} />
+                  <Route exact path={"profile"}>
+                    <Route exact index element={<Profile />} />
+                    <Route exact path={"edit"} element={<EditProfile />} />
+                  </Route>
+                </>
+              )}
             </Routes>
             <FooterMenu />
           </>
