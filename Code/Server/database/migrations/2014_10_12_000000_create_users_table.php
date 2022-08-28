@@ -22,11 +22,11 @@ return new class extends Migration
             $table->string('description')->default("");
             $table->string('image')->nullable();
             $table->tinyInteger("role")->default(1);
-            $table->tinyInteger("field")->default("");
-            $table->tinyInteger("linkedin")->default("");
-            $table->tinyInteger("youtube")->default("");
-            $table->tinyInteger("facebook")->default("");
-            $table->tinyInteger("phone")->default("");
+            $table->string("field")->default("");
+            $table->string("linkedin")->default("");
+            $table->string("youtube")->default("");
+            $table->string("facebook")->default("");
+            $table->string("phone")->default("");
             $table->timestamps();
         });
     }

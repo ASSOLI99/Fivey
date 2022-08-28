@@ -164,4 +164,12 @@ class CourseController extends Controller
     {
         return Course::where('id', '=', $id)->delete();
     }
+    public function userCourses($id){
+       $courses = DB::table('courses')->where('user_id','=',$id)->paginate(8);
+        return response($courses, 200);
+    }
+      public function userCourse($id){
+       $courses = DB::table('courses')->where('id','=',$id)->select('user_id','image','time')->get();
+        return response($courses, 200);
+    }
 }

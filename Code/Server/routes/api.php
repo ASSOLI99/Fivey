@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,5 +49,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/admin/courses/{id}', [AuthController::class, 'showOneCourses']);
     Route::put('/user/edit/{id}', [AuthController::class, 'update']);
     Route::get('/user/{id}', [AuthController::class, 'show']);
+    //section _\|/_ courses
+    Route::get('/course/categories', [CategoryController::class, 'catSelect']);
+    Route::get('/courses/{id}', [CourseController::class, 'userCourses']);
+    Route::get('/courses/user/{id}', [CourseController::class, 'userCourse']);
+    //section _\|/_ videos
+    Route::post('/video/add/{id}', [VideoController::class, 'store']);
+    Route::get('/videos/course/{id}', [VideoController::class, 'index']);
+    
 
 });

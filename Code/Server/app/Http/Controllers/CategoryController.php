@@ -25,6 +25,13 @@ class CategoryController extends Controller
           $category = Category::select('id', 'name', 'description', 'image')->orderByDesc('id')->take(5)->get();
         return response($category, 200);
     }
+    public function catSelect()
+    {
+        //  $category= DB::table('categories')->join('courses','courses.category_id',"=",'categories.id')->take(5)->get();
+        // return response($category,200);
+          $category = Category::select('id', 'name')->orderByDesc('name')->get();
+        return response($category, 200);
+    }
     public function store(Request $request)
     {
         // return response($request);

@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
-import {
-  Nav,
-  Form,
-  Navbar,
-  Container,
-  NavDropdown,
-  Dropdown,
-} from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth-slice";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,6 +11,7 @@ const NavMenu = () => {
   const logoutHandler = () => {
     dispatch(authActions.loggingOut());
     localStorage.removeItem("token");
+    location.reload();
   };
   return (
     <>
@@ -72,6 +65,11 @@ const NavMenu = () => {
                     className="middle-link"
                   >
                     <i className="bi bi-coin"></i> Revenue
+                  </Nav.Link>
+                </li>
+                <li onClick={logoutHandler}>
+                  <Nav.Link className="middle-link">
+                    <i className="bi bi-box-arrow-right"></i> Logout
                   </Nav.Link>
                 </li>
               </ul>

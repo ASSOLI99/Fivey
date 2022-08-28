@@ -17,24 +17,24 @@
   cursor: pointer;
   text-decoration: none;
 }
-.user-user-profile .profile .container {
+.user-profile .profile .container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .user-user-profile .profile .container {
+  .user-profile .profile .container {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .user-user-profile .profile .container {
+  .user-profile .profile .container {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .user-user-profile .profile .container {
+  .user-profile .profile .container {
     width: 1170px;
   }
 }
@@ -45,7 +45,7 @@
   padding: 50px 0;
   background-color: #fbfbfb;
 }
-.user-profile .profile .user-profile .details {
+.user-profile .profile .details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -147,7 +147,7 @@
   color: var(--secoundry-yellow);
 }
 @media (max-width: 600px) {
-  .user-profile .profile .user-profile .details {
+  .user-profile .profile .details {
     flex-direction: column-reverse;
   }
   .user-profile .details .left-side {
@@ -170,7 +170,7 @@
 .user-profile .courses-view .heading {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center !important;
   margin-bottom: 50px;
 }
 .user-profile .courses-view .heading h2 {

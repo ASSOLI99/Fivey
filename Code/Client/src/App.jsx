@@ -17,6 +17,8 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Profile from "./components/profile/Profile";
 import EditProfile from "./components/profile/EditProfile";
+import Create from "./components/createCourse/Create";
+import SingleCourses from "./components/createCourse/SingleCourse";
 //Admin pages
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
@@ -28,6 +30,8 @@ import AdminUsers from "./Admin/components/users/Users";
 import AdminSingleUser from "./Admin/components/users/SingleUser";
 import AdminUserCourses from "./Admin/components/users/SingleCourses";
 import "./App.css";
+import MyCourses from "./components/createCourse/myCourses";
+import Videos from "./components/createCourse/Videos";
 
 function App() {
   const dispatch = useDispatch();
@@ -106,6 +110,24 @@ function App() {
                   <Route exact path={"profile"}>
                     <Route exact index element={<Profile />} />
                     <Route exact path={"edit"} element={<EditProfile />} />
+                  </Route>
+                </>
+              )}
+              {role == 2 && (
+                <>
+                  <Route exact path={"Courses"}>
+                    <Route exact path={"myCourses"} element={<MyCourses />} />
+                    <Route
+                      exact
+                      path={"myCourses/:id"}
+                      element={<SingleCourses />}
+                    />
+                    <Route
+                      path={":myCourses/:id/videos"}
+                      element={<Videos />}
+                    />
+
+                    <Route exact path={"create"} element={<Create />} />
                   </Route>
                 </>
               )}

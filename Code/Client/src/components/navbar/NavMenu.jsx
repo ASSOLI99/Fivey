@@ -84,6 +84,14 @@ const NavMenu = () => {
                       <Dropdown.Divider />
                     </>
                   )}
+                  {role == 2 && (
+                    <>
+                      <Dropdown.Item as={Link} to="courses/myCourses">
+                        My Courses
+                      </Dropdown.Item>
+                      <Dropdown.Divider />
+                    </>
+                  )}
                   {role && (
                     <>
                       <Dropdown.Item as={Link} to="/">
@@ -92,6 +100,7 @@ const NavMenu = () => {
                       <Dropdown.Divider />
                     </>
                   )}
+
                   {!role && (
                     <>
                       <Dropdown.Item as={Link} to="/login">
@@ -209,7 +218,11 @@ const NavMenu = () => {
                 </li>
                 {role == 2 ? (
                   <li>
-                    <Nav.Link as={Link} to="/Create" className="middle-link">
+                    <Nav.Link
+                      as={Link}
+                      to="courses/Create"
+                      className="middle-link"
+                    >
                       Add <i className="bi bi-plus-circle-dotted"></i>
                     </Nav.Link>
                   </li>

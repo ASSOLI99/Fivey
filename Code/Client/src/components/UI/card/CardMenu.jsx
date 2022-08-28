@@ -17,11 +17,15 @@ const CardMenu = (props) => {
       <div className="img-handler">
         <Card.Img
           variant="top"
-          style={{ maxHeight: "200px" }}
+          style={{ maxHeight: "180px" }}
           src={`${props.cardImage}`}
         />
         {props.secondDescription && (
-          <span className="img-description">{props.secondDescription}</span>
+          <span className="img-description">
+            {props.secondDescription.length > 35
+              ? `${props.secondDescription.slice(0, 33)}...`
+              : props.secondDescription}
+          </span>
         )}
         {!props.secondDescription && (
           <span className="img-description">go there</span>
