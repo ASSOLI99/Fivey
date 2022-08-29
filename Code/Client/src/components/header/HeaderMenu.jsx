@@ -2,7 +2,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CardMenu from "../UI/card/CardMenu";
 import "./HeaderMenu.css";
-const HeaderMenu = () => {
+const HeaderMenu = (props) => {
   return (
     <>
       <Container fluid className="container-xl">
@@ -11,86 +11,18 @@ const HeaderMenu = () => {
             <div className="side-bar bg-white p-2">
               <h2>See More</h2>
               <hr />
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="justify-content-between d-flex text-black text-decoration-none"
-                  to="/we"
-                >
-                  <span>Featured Auckland deals</span>
-                </Link>
-              </p>
+              {props.allCategory.map((category) => {
+                return (
+                  <p>
+                    <Link
+                      className="justify-content-between d-flex text-black text-decoration-none"
+                      to={`categories/${category.name}`}
+                    >
+                      <span>{category.name}</span>
+                    </Link>
+                  </p>
+                );
+              })}
             </div>
           </Col>
           <Col className="col-xl-9 col-12">

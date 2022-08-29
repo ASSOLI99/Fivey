@@ -20,7 +20,7 @@ const Welcome = () => {
   return (
     <>
       <Welcoming />
-      <HeaderMenu />
+      <HeaderMenu allCategory={allCategory} />
       <NewsLetter />
       {allCategory.map((category) => {
         return (

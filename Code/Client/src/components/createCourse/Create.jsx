@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./Create.css";
 
 const Create = () => {
+  const navigate = useNavigate();
   const userId = useSelector((state) => state.user.id);
   const token = localStorage.getItem("token");
   const [message, setMessage] = useState(false);
@@ -18,11 +20,8 @@ const Create = () => {
       })
       .then((res) => {
         setCategories(res.data);
-        console.log(res.data);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   }, []);
 
   const [backError, setBackError] = useState(false);
@@ -50,18 +49,19 @@ const Create = () => {
         },
       })
       .then((res) => {
-        console.log(res);
         if (res.data.errors) {
           setBackError(res.data.errors);
           setMessage(false);
         } else {
+          setDisableBtn(true);
           setBackError(false);
           setMessage("added successfully");
           e.target.reset();
+          navigate("/courses/myCourses");
         }
       });
   };
-
+  const [disableBtn, setDisableBtn] = useState(false);
   return (
     <div className="category">
       <Container fluid className="container-xl text-center">
@@ -120,11 +120,12 @@ const Create = () => {
                 <Form.Label className="fw-bold">Category *</Form.Label>
                 <Form.Select aria-label="category" name="category_id">
                   <option disabled>Select Category</option>
-                  {categories.map((category) => {
-                    {
-                      console.log(category.id);
-                    }
-                    return <option value={category.id}>{category.name}</option>;
+                  {categories.map((category, index) => {
+                    return (
+                      <option key={index} value={category.id}>
+                        {category.name}
+                      </option>
+                    );
                   })}
                   {/* <option value="1">Student</option>
                   <option value="2">instructor</option> */}
@@ -143,13 +144,12 @@ const Create = () => {
                 />
               </Form.Group>
 
-              <Button variant="warning" type="submit">
+              <Button disabled={disableBtn} variant="warning" type="submit">
                 Submit
               </Button>
               <ul className="text-danger mt-2 p-0">
                 {backError &&
                   backError.map((error, index) => {
-                    // console.log("index :>> ", index);
                     return (
                       <li className="list-unstyled" key={index}>
                         - {error}

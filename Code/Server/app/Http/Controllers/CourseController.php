@@ -86,7 +86,7 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $courses = Course::where('category_id', $id)->take(4)->get();
+        $courses = Course::where('category_id', $id)->take(8)->get();
         return response($courses);
     }
      public function showOne($id)

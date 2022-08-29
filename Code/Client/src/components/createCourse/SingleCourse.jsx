@@ -148,7 +148,7 @@ const SingleCourse = () => {
           </Col>
           {message && <Alert variant="success my-4">{message}</Alert>}
         </Row>
-        <Link to={`videos/${id}`} className={"btn btn-warning mb-3"}>
+        <Link to={`videos`} className={"btn btn-warning mb-3"}>
           Add Video
         </Link>
         <br />

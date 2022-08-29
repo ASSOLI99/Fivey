@@ -22,26 +22,26 @@ const MyCourses = (props) => {
   const token = localStorage.getItem("token");
   const [page, setPage] = useState(1);
   const [courses, setCourses] = useState({
-    data: ["Array", " Array"],
+    data: [],
     current_page: "",
     per_page: "",
     total: "",
   });
   useEffect(() => {
     setIsLoading(true);
-    const url = `http://localhost:8000/api/courses/${userId}?page=${page}`;
+    const url = `http://localhost:8000/api/course/${userId}?page=${page}`;
     axios
       .get(url, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
         setCourses(res.data);
-        console.log(res.data);
+        // console.log(res.data);
         setIsLoading(false);
       })
       .catch((error) => {
         setIsLoading(false);
-        console.log(error);
+        // console.log(error);
       });
   }, [page]);
   const pageNumber = (value) => {

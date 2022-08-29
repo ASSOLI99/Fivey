@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
         //  $category= DB::table('categories')->join('courses','courses.category_id',"=",'categories.id')->take(5)->get();
         // return response($category,200);
-          $category = Category::select('id', 'name', 'description', 'image')->orderByDesc('id')->take(5)->get();
+          $category = Category::select('id', 'name', 'description', 'image')->orderBy('id')->take(4)->get();
         return response($category, 200);
     }
     public function catSelect()
@@ -38,7 +38,7 @@ class CategoryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|string',
+                'name' => 'required|string|unique:categories',
                 'description' => 'required|string',
                 'image' => 'required|max:5048|mimes:jpeg,jpg,png',
             ]

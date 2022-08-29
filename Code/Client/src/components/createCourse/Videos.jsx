@@ -267,7 +267,6 @@ const Videos = () => {
                             </p>
                             <h4>{video.name}</h4>
                             <p className="about">{video.description}</p>
-                            <p>{upload}</p>
                           </div>
                           <p className="play-btn">
                             <i className="fa-solid fa-circle-play"></i>

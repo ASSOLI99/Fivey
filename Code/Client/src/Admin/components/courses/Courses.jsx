@@ -25,12 +25,25 @@ const Courses = () => {
 
   // }
   const [page, setPage] = useState(1);
+  const [categories, setCategories] = useState([]);
   const [courses, setCourses] = useState({
     data: ["Array", " Array"],
     current_page: "",
     per_page: "",
     total: "",
   });
+  useEffect(() => {
+    const url = `http://localhost:8000/api/course/categories`;
+    axios
+      .get(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setCategories(res.data);
+      })
+      .catch((error) => {});
+  }, []);
+
   useEffect(() => {
     setIsLoading(true);
     const url = `http://localhost:8000/api/courses?page=${page}`;
@@ -40,12 +53,10 @@ const Courses = () => {
       })
       .then((res) => {
         setCourses(res.data);
-        console.log(res.data);
         setIsLoading(false);
       })
       .catch((error) => {
         setIsLoading(false);
-        console.log(error);
       });
   }, [page, number]);
   const pageNumber = (value) => {
@@ -76,7 +87,6 @@ const Courses = () => {
         },
       })
       .then((res) => {
-        console.log(res);
         if (res.data.errors) {
           setBackError(res.data.errors);
           setMessage(false);
@@ -89,7 +99,6 @@ const Courses = () => {
       });
   };
   const { data, current_page, per_page, total } = courses;
-
   return (
     <div className="category">
       <Container fluid className="container-xl text-center">
@@ -144,7 +153,21 @@ const Courses = () => {
               </Form.Group>
 
               <Form.Control type="hidden" value={userId} name="user_id" />
-              <Form.Control type="hidden" value="1" name="category_id" />
+              <Form.Group className="mb-3" controlId="formBasicCategory">
+                <Form.Label className="fw-bold">Category *</Form.Label>
+                <Form.Select aria-label="category" name="category_id">
+                  <option disabled>Select Category</option>
+                  {categories.map((category, index) => {
+                    return (
+                      <option key={index} value={category.id}>
+                        {category.name}
+                      </option>
+                    );
+                  })}
+                  {/* <option value="1">Student</option>
+                  <option value="2">instructor</option> */}
+                </Form.Select>
+              </Form.Group>
               <Form.Group className="mb-3" controlId="time">
                 <Form.Label className="fw-bold">Expected Time *</Form.Label>
                 <Form.Control type="number" placeholder="20" name="time" />
@@ -164,7 +187,6 @@ const Courses = () => {
               <ul className="text-danger mt-2 p-0">
                 {backError &&
                   backError.map((error, index) => {
-                    // console.log("index :>> ", index);
                     return (
                       <li className="list-unstyled" key={index}>
                         - {error}

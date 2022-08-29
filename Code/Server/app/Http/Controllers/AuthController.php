@@ -58,7 +58,7 @@ class AuthController extends Controller
             'userName'=>['required','min:3',Rule::unique('users','userName')],
             'email'=>['required','regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', Rule::unique('users','email')],
             'password'=>'required|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$_%^&*-.]).{8,}$/',
-            'role'=>'required',
+            'role'=>'required',Rule::in(['1', '2']),
             'image' => 'required|max:5048|mimes:jpeg,jpg,png',
         ]);
 
