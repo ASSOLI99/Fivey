@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/categoriesAll', [CategoryController::class, 'allCat']);
+Route::get('/category/dropMenu', [CategoryController::class, 'dropMenu']);
 Route::get('/courses/{id}', [CourseController::class, 'show']);
 
 //privet

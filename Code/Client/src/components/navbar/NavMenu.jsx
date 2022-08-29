@@ -15,7 +15,19 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./NavMenu.css";
 import FiveyLogo from "./Fivey-navbar.png";
+import axios from "axios";
 const NavMenu = () => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/category/dropMenu")
+      .then((res) => {
+        setCategories(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const role = useSelector((state) => state.user.role);
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
@@ -29,6 +41,7 @@ const NavMenu = () => {
     localStorage.removeItem("token");
     location.reload();
   };
+
   return (
     <>
       {/* top navbar start */}
@@ -155,48 +168,17 @@ const NavMenu = () => {
                       All Corses
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/PhotoShop"
-                        className="text-decoration-none text-dark"
-                      >
-                        PhotoShop
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/Laravel"
-                        className="text-decoration-none text-dark"
-                      >
-                        Laravel
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        as={Link}
-                        to="/React"
-                        className="text-decoration-none text-dark"
-                      >
-                        React
-                      </Dropdown.Item>
+                      {categories.map((category) => {
+                        return (
+                          <Dropdown.Item
+                            as={Link}
+                            to={`/categories/${category.name}`}
+                            className="text-decoration-none text-dark"
+                          >
+                            {category.name}
+                          </Dropdown.Item>
+                        );
+                      })}
                     </Dropdown.Menu>
                   </Dropdown>
                 </li>

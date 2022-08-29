@@ -10,26 +10,24 @@ use Symfony\Component\Console\Input\Input;
 
 class CategoryController extends Controller
 {
-
+public function dropMenu()
+    {
+        $category = Category::select('id', 'name')->orderBy('id')->take(12)->get();
+        return response($category, 200);
+    }
     public function index()
     {
         $category = Category::select('id', 'name', 'description', 'image')->orderByDesc('id')->paginate(10);
         return response($category, 200);
-        // $categories=Category::query()->orderByDesc('id')->paginate(6);
-        // return response($categories,200);
     }
     public function allCat()
     {
-        //  $category= DB::table('categories')->join('courses','courses.category_id',"=",'categories.id')->take(5)->get();
-        // return response($category,200);
-          $category = Category::select('id', 'name', 'description', 'image')->orderBy('id')->take(4)->get();
+        $category = Category::select('id', 'name', 'description', 'image')->orderBy('id')->take(5)->get();
         return response($category, 200);
     }
     public function catSelect()
     {
-        //  $category= DB::table('categories')->join('courses','courses.category_id',"=",'categories.id')->take(5)->get();
-        // return response($category,200);
-          $category = Category::select('id', 'name')->orderByDesc('name')->get();
+        $category = Category::select('id', 'name')->orderByDesc('name')->get();
         return response($category, 200);
     }
     public function store(Request $request)
@@ -68,7 +66,6 @@ class CategoryController extends Controller
     }
     public function update(Request $request, $id)
     {
-        //   return  response($request->file('image'));
 
         $validator = Validator::make(
             $request->all(),
