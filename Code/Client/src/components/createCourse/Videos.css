@@ -260,5 +260,23 @@
     font-size: 11px;
   }
 }
+.lecture {
+  position: relative;
+}
+.video-number {
+  position: absolute;
+  background-color: #43434399;
+  padding: 5px 12px;
+  color: white;
+  font-weight: 600;
+}
+.videoLink {
+  text-decoration: none;
+  color: black;
+  transition: var(--main-transition);
+}
+.videoLink:hover {
+  color: var(--main-yellow);
+}
 /* course detail end */
 /* main end */

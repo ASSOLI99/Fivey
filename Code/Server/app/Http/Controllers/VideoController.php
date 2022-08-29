@@ -71,6 +71,9 @@ class VideoController extends Controller
         $course->name = $request->name;
         $course->description = $request->description;
         $course->course_id = $request->course_id;
+        if(round($duration) >= 60){
+            $duration=$duration/60;
+        }
         $course->length = round($duration);
         $course->save();
         return response($course, 201);
