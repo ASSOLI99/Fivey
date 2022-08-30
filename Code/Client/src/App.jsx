@@ -19,6 +19,9 @@ import Profile from "./components/profile/Profile";
 import EditProfile from "./components/profile/EditProfile";
 import Create from "./components/createCourse/Create";
 import SingleCourses from "./components/createCourse/SingleCourse";
+import MyCourses from "./components/createCourse/myCourses";
+import Videos from "./components/createCourse/Videos";
+import SingleVideo from "./pages/SingleVideo";
 //Admin pages
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
@@ -30,15 +33,12 @@ import AdminUsers from "./Admin/components/users/Users";
 import AdminSingleUser from "./Admin/components/users/SingleUser";
 import AdminUserCourses from "./Admin/components/users/SingleCourses";
 import "./App.css";
-import MyCourses from "./components/createCourse/myCourses";
-import Videos from "./components/createCourse/Videos";
 
 function App() {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.user.role);
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     axios
       .get("http://127.0.0.1:8000/api/user", {
         headers: { Authorization: `Bearer ${token}` },
@@ -61,6 +61,7 @@ function App() {
         dispatch(userActions.setUserName(res.data.userName));
       });
   }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -97,6 +98,11 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/categories" element={<Categories />} />
               <Route exact path="/course/:id" element={<SingleCourse />} />
+              <Route
+                exact
+                path="/course/:course_id/:video_id"
+                element={<SingleVideo />}
+              />
 
               {!role && (
                 <>

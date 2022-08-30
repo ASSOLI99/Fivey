@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Pagination from "react-js-pagination";
-const SingleCourse = () => {
+import myVid from "./166168583563.mp4";
+const SingleVideo = () => {
   const userId = useSelector((state) => state.user.id);
-  const { id } = useParams();
+  const { course_id, video_id } = useParams();
   const [courseData, setCourseData] = useState("");
   const [userCourses, setUserCourses] = useState(false);
   const [owned, setOwned] = useState(false);
@@ -24,7 +25,7 @@ const SingleCourse = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`http://127.0.0.1:8000/api/fullCourse/${id}?page=${page}`)
+      .get(`http://127.0.0.1:8000/api/fullCourse/${course_id}?page=${page}`)
       .then((res) => {
         console.log(res.data);
         setCourseData(res.data.data[0]);
@@ -36,7 +37,7 @@ const SingleCourse = () => {
   useEffect(() => {
     if (userCourses) {
       for (let i = 0; i < userCourses.length; i++) {
-        if (userCourses[i].course_id == id) {
+        if (userCourses[i].course_id == course_id) {
           setOwned(true);
           break;
         }
@@ -149,7 +150,7 @@ const SingleCourse = () => {
                       }
                       return (
                         <Link
-                          to={`/course/${id}/${video.video_id}`}
+                          to={`/course/${course_id}/${video.video_id}`}
                           className="videoLink"
                         >
                           <div className="lecture">
@@ -213,4 +214,4 @@ const SingleCourse = () => {
     </div>
   );
 };
-export default SingleCourse;
+export default SingleVideo;
