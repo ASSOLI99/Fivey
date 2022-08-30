@@ -85,9 +85,10 @@ class VideoController extends Controller
      * @param  \App\Models\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video)
+   public function show($id)
     {
-        //
+        $video = Video::where('id', $id)->get();
+        return response($video);
     }
 
     /**

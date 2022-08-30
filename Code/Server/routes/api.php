@@ -26,7 +26,7 @@ Route::get('/categoriesAll', [CategoryController::class, 'allCat']);
 Route::get('/category/dropMenu', [CategoryController::class, 'dropMenu']);
 Route::get('/courses/{id}', [CourseController::class, 'show']);
 Route::get('/fullCourse/{id}', [CourseController::class, 'fullCourse']);
-
+Route::get('/videos/{id}', [VideoController::class, 'show']);
 //privet
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
@@ -61,5 +61,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/videos/course/{id}', [VideoController::class, 'index']);
     //section _\|/_ user Courses
     Route::get('/userCourses/{id}', [UserCourseController::class, 'show']);
-
+    //section _\|/_ videos
+    
 });

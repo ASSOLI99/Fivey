@@ -1,15 +1,19 @@
-import "./CSS/SingleCourse.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import Pagination from "react-js-pagination";
-import myVid from "./166168583563.mp4";
+import { useParams } from "react-router-dom";
+// This imports the functional component from the previous sample.
+import VideoJS from "../components/video/Video";
+import "./CSS/SingleVideo.css";
 const SingleVideo = () => {
   const userId = useSelector((state) => state.user.id);
+  const [myVideo, setMyVideo] = useState("");
   const { course_id, video_id } = useParams();
   const [courseData, setCourseData] = useState("");
   const [userCourses, setUserCourses] = useState(false);
+  const [videoJsOptions, setVideoJsOptions] = useState(false);
   const [owned, setOwned] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [videos, setVideos] = useState({
@@ -22,6 +26,7 @@ const SingleVideo = () => {
   const pageNumber = (value) => {
     setPage(value);
   };
+  //course Videos start
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -30,10 +35,10 @@ const SingleVideo = () => {
         console.log(res.data);
         setCourseData(res.data.data[0]);
         setVideos(res.data);
-        setIsLoading(false);
         window.scrollTo(0, 0);
       });
   }, [page]);
+
   useEffect(() => {
     if (userCourses) {
       for (let i = 0; i < userCourses.length; i++) {
@@ -58,160 +63,61 @@ const SingleVideo = () => {
         .catch((error) => console.log(error));
     }
   }, [userId]);
-
   const { data, current_page, per_page, total } = videos;
+  //course Videos end
+  // get video start
+
+  useEffect(() => {
+    if (video_id && video_id > 0) {
+      axios
+        .get(`http://127.0.0.1:8000/api/videos/${video_id}`)
+        .then((res) => {
+          setMyVideo(res.data);
+          setVideoJsOptions({
+            autoplay: true,
+            controls: true,
+            sources: [
+              {
+                src: `http://localhost:8000/video/course/${res.data[0].video}`,
+                type: "video/mp4",
+              },
+            ],
+          });
+          if (res.data[0].state == 2) {
+            setOwned(true);
+          } else if (res.data[0].state == 0) {
+            setOwned(false);
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [video_id]);
+  // get video end
+  const playerRef = React.useRef(null);
+
+  const handlePlayerReady = (player) => {
+    playerRef.current = player;
+
+    // You can handle player events here, for example:
+    player.on("waiting", () => {
+      videojs.log("player is waiting");
+    });
+
+    player.on("dispose", () => {
+      videojs.log("player will dispose");
+    });
+  };
+
   return (
-    <div className="single-course">
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      />
-
-      <main>
-        <section className="course-details">
-          <div className="container">
-            <div className="content">
-              <img
-                className="main-image"
-                src={`http://localhost:8000/img/course/${courseData.course_image}`}
-                alt=""
-              />
-              <div className="rated">
-                <p className="rating">
-                  <span>(1023)</span>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star-half-stroke"></i>
-                  <i className="fa-regular fa-star"></i>
-                </p>
-                <p className="difficulty">{courseData.course_language}</p>
-              </div>
-              <div className="pricing">
-                {!owned ? (
-                  <>
-                    <button className="buy-btn">Buy course</button>
-                    <button className="add-btn">Add to cart</button>
-                  </>
-                ) : (
-                  <button className="add-btn">
-                    <i className="bi bi-bookmark-star"></i> Rate Course
-                  </button>
-                )}
-              </div>
-              <div className="description">
-                <h2>{courseData.course_name}</h2>
-                <p className="detail">{courseData.course_description}</p>
-                <div className="instructor">
-                  <Link
-                    className="text-black text-decoration-none"
-                    to={`/profile/${courseData.instructor_id}`}
-                  >
-                    <img
-                      src={`http://localhost:8000/img/user/${courseData.instructor_image}`}
-                      alt=""
-                    />
-                  </Link>
-                  <div>
-                    <h4>
-                      <Link
-                        className="text-black text-decoration-none"
-                        to={`/profile/${courseData.instructor_id}`}
-                      >
-                        {courseData.instructor_name}
-                      </Link>
-                    </h4>
-                    <p>{courseData.instructor_field}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="course-content">
-                <div className="heading">
-                  <h3>Course Content</h3>
-                  <p>
-                    {videos.data.length * videos.last_page} lecture
-                    <i className="fa-solid fa-circle"></i>{" "}
-                    {courseData.course_time}mins
-                  </p>
-                </div>
-                <div className="lectures">
-                  {isLoading ? (
-                    <div
-                      className="spinner-border text-warning ms-5"
-                      role="status"
-                    ></div>
-                  ) : (
-                    data.map((video, index) => {
-                      if (video.video_state == 0) {
-                        return;
-                      }
-                      return (
-                        <Link
-                          to={`/course/${course_id}/${video.video_id}`}
-                          className="videoLink"
-                        >
-                          <div className="lecture">
-                            <img
-                              src={`http://localhost:8000/img/course/${courseData.course_image}`}
-                              alt=""
-                            />
-                            <span className="video-number">
-                              {(current_page - 1) * per_page + (index + 1)}
-                            </span>
-
-                            <div className="details">
-                              <p className="time">
-                                <i className="fa-solid fa-clock"></i>{" "}
-                                {video.length >= 60
-                                  ? `${video.video_length / 60}min`
-                                  : `${video.video_length}sec`}
-                              </p>
-                              <h4>{video.video_name}</h4>
-                              <p className="about">{video.video_description}</p>
-                            </div>
-                            {video.video_state == 2 && (
-                              <p className="play-btn">
-                                <i className="fa-solid fa-circle-play"></i>
-                              </p>
-                            )}
-                            {video.video_state == 1 && (
-                              <>
-                                {!owned ? (
-                                  <p className="play-btn">
-                                    <i className="fa-solid fa-lock"></i>
-                                  </p>
-                                ) : (
-                                  <p className="play-btn">
-                                    <i className="fa-solid fa-circle-play"></i>
-                                  </p>
-                                )}
-                              </>
-                            )}
-                          </div>
-                        </Link>
-                      );
-                    })
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="d-flex justify-content-center mt-5">
-              <Pagination
-                activePage={Number(current_page)}
-                totalItemsCount={Number(total)}
-                itemsCountPerPage={Number(per_page)}
-                onChange={(pageNum) => {
-                  pageNumber(pageNum);
-                }}
-              />
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+    <Container>
+      {videoJsOptions && (
+        <VideoJS
+          className="theVideo"
+          options={videoJsOptions}
+          onReady={handlePlayerReady}
+        />
+      )}
+    </Container>
   );
 };
 export default SingleVideo;

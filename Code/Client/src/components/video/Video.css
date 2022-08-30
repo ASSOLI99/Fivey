@@ -1,0 +1,27 @@
+.vjs-matrix.video-js {
+  color: #f8c600;
+}
+
+/* Change the border of the big play button. */
+.vjs-matrix .vjs-big-play-button {
+  border-color: #f8c600;
+  color: #f8c600 !important;
+}
+.vjs-matrix {
+  margin-top: 50px;
+  width: 100%;
+  height: 500px;
+}
+@media (max-width: 550px) {
+  .vjs-matrix {
+    height: 300px;
+  }
+}
+
+/* Change the color of various "bars". */
+.vjs-matrix .vjs-volume-level,
+.vjs-matrix .vjs-play-progress,
+.vjs-matrix .vjs-slider-bar {
+  background: #f8c600 !important;
+  color: #f8c600 !important;
+}
