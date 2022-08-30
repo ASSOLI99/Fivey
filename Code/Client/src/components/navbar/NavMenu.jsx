@@ -172,6 +172,7 @@ const NavMenu = () => {
                         return (
                           <Dropdown.Item
                             as={Link}
+                            key={category.name}
                             to={`/categories/${category.name}`}
                             className="text-decoration-none text-dark"
                           >

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/categoriesAll', [CategoryController::class, 'allCat']);
 Route::get('/category/dropMenu', [CategoryController::class, 'dropMenu']);
 Route::get('/courses/{id}', [CourseController::class, 'show']);
+Route::get('/fullCourse/{id}', [CourseController::class, 'fullCourse']);
 
 //privet
 Route::middleware('auth:sanctum')->group(function () {
@@ -57,6 +59,7 @@ Route::middleware('auth:sanctum')->group(function () {
     //section _\|/_ videos
     Route::post('/video/add/{id}', [VideoController::class, 'store']);
     Route::get('/videos/course/{id}', [VideoController::class, 'index']);
-    
+    //section _\|/_ user Courses
+    Route::get('/userCourses/{id}', [UserCourseController::class, 'show']);
 
 });

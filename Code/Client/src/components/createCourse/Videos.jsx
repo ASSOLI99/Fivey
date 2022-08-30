@@ -18,7 +18,7 @@ const Videos = () => {
   const { id } = useParams();
   const [courseUserId, setCourseUserId] = useState("");
   const [videos, setVideos] = useState({
-    data: ["Array", " Array"],
+    data: [],
     current_page: "",
     per_page: "",
     total: "",

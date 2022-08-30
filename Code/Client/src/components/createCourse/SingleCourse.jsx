@@ -62,12 +62,6 @@ const SingleCourse = () => {
   };
   const [backError, setBackError] = useState(false);
   const [message, setMessage] = useState(false);
-
-  // const [imageData, setImageData] = useState("");
-  // const handleChange = (file) => {
-  //   setImageData(file[0]);
-  //   console.log(imageData);
-  // };
   const submitHandler = (e) => {
     e.preventDefault();
     const fData = new FormData();
@@ -106,8 +100,6 @@ const SingleCourse = () => {
       })
       .catch((error) => {
         console.log(error);
-        // let arr = Object.values(error.response.data.errors);
-        // setBackError(arr);
       });
   };
 
