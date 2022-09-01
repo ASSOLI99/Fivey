@@ -39,8 +39,7 @@ const CategoryMenu = (props) => {
                     hasCart={true}
                     time={course.time}
                     secondDescription={course.second_description}
-                    // cardImage={`http://localhost:8000/img/category/${categoryData.image}`}
-                    cardImage={"aeb84584eaa6c41eed7337bd45f4ad22e01cdf99.jpg"}
+                    cardImage={`http://localhost:8000/img/course/${course.image}`}
                   />
                 </Link>
               </Col>
