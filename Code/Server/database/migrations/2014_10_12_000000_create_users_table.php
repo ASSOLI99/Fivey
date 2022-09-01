@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('userName')->unique();
+            $table->string('userName')->unique()->default('');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('description')->default("");
@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string("youtube")->default("");
             $table->string("facebook")->default("");
             $table->string("phone")->default("");
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }
