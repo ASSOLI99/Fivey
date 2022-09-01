@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CodeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\VideoController;
@@ -61,6 +62,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/videos/course/{id}', [VideoController::class, 'index']);
     //section _\|/_ user Courses
     Route::get('/userCourses/{id}', [UserCourseController::class, 'show']);
-    //section _\|/_ videos
-    
+    Route::post('/userCourses/add', [UserCourseController::class, 'store']);
+    //section _\|/_ codes
+    Route::post('/code/add', [CodeController::class, 'store']);
+    Route::put('/code/edit/{id}', [CodeController::class, 'update']);
+    Route::get('/code', [CodeController::class, 'index']);
+    Route::get('/code/{id}', [CodeController::class, 'show']);
 });

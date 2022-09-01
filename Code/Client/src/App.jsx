@@ -32,7 +32,9 @@ import AdminSingleCourse from "./Admin/components/courses/SingleCourse";
 import AdminUsers from "./Admin/components/users/Users";
 import AdminSingleUser from "./Admin/components/users/SingleUser";
 import AdminUserCourses from "./Admin/components/users/SingleCourses";
+import Other from "./Admin/components/other/Other";
 import "./App.css";
+import Code from "./Admin/components/code/Code";
 
 function App() {
   const dispatch = useDispatch();
@@ -86,6 +88,8 @@ function App() {
                   <Route path={":id"} element={<AdminSingleUser />} />
                   <Route path={":user/:id"} element={<AdminUserCourses />} />
                 </Route>
+                <Route path="other" element={<Other />} />
+                <Route path="codes" element={<Code />} />
               </Route>
             </Routes>
             <div className="helper d-block d-md-none"></div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\UserCourse;
 use App\Http\Requests\StoreUserCourseRequest;
 use App\Http\Requests\UpdateUserCourseRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserCourseController extends Controller
 {
@@ -34,9 +36,25 @@ class UserCourseController extends Controller
      * @param  \App\Http\Requests\StoreUserCourseRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserCourseRequest $request)
+   public function store(Request $request)
     {
-        //
+        // return response($request);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'user_id' => 'required',
+                'course_id' => 'required',
+            ]
+
+        );
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+        $nCourse = new UserCourse();
+        $nCourse->user_id = $request->user_id;
+        $nCourse->course_id = $request->course_id;
+        $nCourse->save();
+        return response($nCourse);
     }
 
     /**

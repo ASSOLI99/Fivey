@@ -5,6 +5,7 @@ import "./Video.css";
 export const VideoJS = (props) => {
   const videoRef = React.useRef(null);
   const playerRef = React.useRef(null);
+
   const { options, onReady } = props;
 
   React.useEffect(() => {
@@ -17,6 +18,7 @@ export const VideoJS = (props) => {
       const player = (playerRef.current = videojs(videoElement, options, () => {
         videojs.log("player is ready");
         onReady && onReady(player);
+        console.log(player);
       }));
 
       // You could update an existing player in the `else` block here
@@ -31,7 +33,7 @@ export const VideoJS = (props) => {
   // Dispose the Video.js player when the functional component unmounts
   React.useEffect(() => {
     const player = playerRef.current;
-
+    console.log(player);
     return () => {
       if (player) {
         player.dispose();

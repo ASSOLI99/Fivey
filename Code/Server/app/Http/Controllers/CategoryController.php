@@ -32,7 +32,6 @@ public function dropMenu()
     }
     public function store(Request $request)
     {
-        // return response($request);
         $validator = Validator::make(
             $request->all(),
             [

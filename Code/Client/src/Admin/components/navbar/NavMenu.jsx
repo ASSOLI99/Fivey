@@ -26,12 +26,8 @@ const NavMenu = () => {
             >
               <ul className="d-flex list-unstyled align-items-center p-0 m-0 justify-content-center">
                 <li>
-                  <Nav.Link
-                    as={Link}
-                    to="/Admin/category"
-                    className="middle-link"
-                  >
-                    <i className="bi bi-grid"></i> Category
+                  <Nav.Link as={Link} to="/Admin/other" className="middle-link">
+                    <i className="bi bi-grid"></i> Other
                   </Nav.Link>
                 </li>
                 <li>
@@ -86,7 +82,7 @@ const NavMenu = () => {
         fixed="bottom"
       >
         <Container fluid className="d-flex justify-content-around px-0">
-          <Nav.Link className="icon-link" as={Link} to="/Admin/category">
+          <Nav.Link className="icon-link" as={Link} to="/Admin/other">
             <span className="icon-link d-flex justify-content-center nav-icon">
               <i className="bi bi-grid"></i>
             </span>
@@ -109,6 +105,11 @@ const NavMenu = () => {
           <Nav.Link as={Link} to="/Admin/revenue">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-coin"></i>
+            </span>
+          </Nav.Link>
+          <Nav.Link onClick={logoutHandler}>
+            <span className="d-flex justify-content-center nav-icon">
+              <i className="bi bi-box-arrow-right"></i>
             </span>
           </Nav.Link>
         </Container>

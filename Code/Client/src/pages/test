@@ -39,11 +39,8 @@ const SingleVideo = () => {
         setVideos(res.data);
         window.scrollTo(0, 0);
         setIsLoading(false);
-        if (res.data.data[0].instructor_id == userId) {
-          setOwned(true);
-        }
       });
-  }, [page, userId]);
+  }, [page]);
 
   useEffect(() => {
     if (userCourses) {
@@ -114,7 +111,7 @@ const SingleVideo = () => {
       videojs.log("player will dispose");
     });
   };
-
+  const clickLinkHandler = () => {};
   return (
     <Container>
       {owned1 || owned ? (
@@ -169,14 +166,11 @@ const SingleVideo = () => {
                     return (
                       <a
                         key={index}
+                        onClick={clickLinkHandler}
                         href={`/course/${course_id}/${video.video_id}`}
                         className="videoLink"
                       >
-                        <div
-                          className={`lecture ${
-                            video_id == video.video_id && "active-video"
-                          }`}
-                        >
+                        <div className="lecture">
                           <img
                             src={`http://localhost:8000/img/course/${courseData.course_image}`}
                             alt=""
@@ -218,12 +212,7 @@ const SingleVideo = () => {
                     );
                   } else {
                     return (
-                      <div
-                        key={index}
-                        className={`lecture ${
-                          video_id == video.video_id && "active-video"
-                        }`}
-                      >
+                      <div key={index} className="lecture">
                         <img
                           src={`http://localhost:8000/img/course/${courseData.course_image}`}
                           alt=""
