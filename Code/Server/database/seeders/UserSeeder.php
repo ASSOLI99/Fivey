@@ -59,7 +59,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'admin@gmail.com',
-            'password' => '123_321Aa',
+            'password' => '',
             'name' => 'Admin',
             'userName' => 'Admin',
             'description' => 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem',
@@ -70,6 +70,48 @@ class UserSeeder extends Seeder
             'facebook'=>'https://www.facebook.com/',
             'phone'=>'0778093279',
             'role' => 0,
+        ]);
+          User::create([
+            'email' => 'sora@gmail.com',
+            'password' => '12345._Aa',
+            'name' => 'Sora Rona',
+            'userName' => 'Sora99',
+            'description' => 'Business Women and founder for 4 big companies',
+            'image' => "sora.jpg",
+            'field' => "Business Women",
+            'youtube'=>'https://www.youtube.com/',
+            'linkedin'=>'https://www.linkedin.com/feed/',
+            'facebook'=>'https://www.facebook.com/',
+            'phone'=>'120840912',
+            'role' => 2,
+        ]);
+        User::create([
+            'email' => 'john@gmail.com',
+            'password' => '12345._Aa',
+            'name' => 'John Ma',
+            'userName' => 'john99',
+            'description' => 'author of 3 books achieved many prizes',
+            'image' => "john.jpg",
+            'field' => "Author",
+            'youtube'=>'https://www.youtube.com/',
+            'linkedin'=>'https://www.linkedin.com/feed/',
+            'facebook'=>'https://www.facebook.com/',
+            'phone'=>'077223147',
+            'role' => 2,
+        ]);
+        User::create([
+            'email' => 'Samer@gmail.com',
+            'password' => '12345._Aa',
+            'name' => 'Samer Majdi',
+            'userName' => 'Samer99',
+            'description' => 'Job Coach and business owner of 2 companies',
+            'image' => "full-stack.jpg",
+            'field' => "Job Coach",
+            'youtube'=>'https://www.youtube.com/',
+            'linkedin'=>'https://www.linkedin.com/feed/',
+            'facebook'=>'https://www.facebook.com/',
+            'phone'=>'077223147',
+            'role' => 2,
         ]);
     }
 }

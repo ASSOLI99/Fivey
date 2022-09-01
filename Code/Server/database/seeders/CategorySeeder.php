@@ -16,9 +16,29 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => "Development",
+            'name' => "Programing",
             'description' => "Developers have to have some skills in a wide variety of coding niches",
             'image' => 'development.jpg',
+        ]); 
+        Category::create([
+            'name' => "Self Development",
+            'description' => "Personal development is a lifelong process. It is a way for people to assess their skills and qualities, consider their aims in life and set goals in order to realise and maximise their potential.",
+            'image' => 'self-development.jpg',
+        ]);
+        Category::create([
+            'name' => "Montage & Design",
+            'description' => "Developers have to have some skills in a wide variety of coding niches.",
+            'image' => 'development.jpg',
+        ]);
+        Category::create([
+            'name' => "University",
+            'description' => "institution of higher learning providing facilities for teaching and research and authorized to grant academic degrees.",
+            'image' => 'university.jpg',
+        ]);
+        Category::create([
+            'name' => "Hobbies",
+            'description' => "pursuit outside one's regular occupation engaged in especially for relaxation Writing is just a hobby of his. Her hobbies include gardening and bird-watching.",
+            'image' => 'hobby.jpg',
         ]);
     }
 }
