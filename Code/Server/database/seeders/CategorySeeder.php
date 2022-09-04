@@ -33,7 +33,7 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => "University",
             'description' => "institution of higher learning providing facilities for teaching and research and authorized to grant academic degrees.",
-            'image' => 'university.jpg',
+            'image' => 'literature.jpg',
         ]);
         Category::create([
             'name' => "Hobbies",
