@@ -99,7 +99,6 @@ const EditProfile = () => {
       })
       .catch((error) => {
         console.log(JSON.parse(error.request.response));
-        setBackError(Object.values(JSON.parse(error.request.response).errors));
       });
   };
 

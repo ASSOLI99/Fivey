@@ -82,8 +82,8 @@ const Profile = () => {
                 <a className="send-message" href={`mailto:${email}`}>
                   <i className="fa-solid fa-envelope"></i> Send Message
                 </a>
-                <Link to={"edit"} class="edit">
-                  <i class="fa-solid fa-pen"></i> Edit
+                <Link to={"edit"} className="edit">
+                  <i className="fa-solid fa-pen"></i> Edit
                 </Link>
                 <div className="links">
                   {youtube && (

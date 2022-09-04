@@ -109,7 +109,7 @@ public function showOneCourses($id){
             'name'=>['required','min:3'],
             'description'=>['nullable','min:25'],
             'role'=>'required',Rule::in(['1', '2']),
-            'Field'=>'nullable',
+            'field'=>'nullable',
             'phone'=>'nullable|min:6',
             'youtube'=>'nullable|url',
             'linkedin'=>'nullable|url',
@@ -128,7 +128,7 @@ public function showOneCourses($id){
         $user->name = $request->name;
         $user->description = $request->description;
         $user->role = $request->role;
-        $user->Field = $request->Field;
+        $user->field = $request->field;
         $user->phone = $request->phone;
         $user->youtube = $request->youtube;
         $user->linkedin = $request->linkedin;
