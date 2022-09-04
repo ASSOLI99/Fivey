@@ -91,13 +91,11 @@ const SingleCourse = () => {
           setBackError(res.data.errors);
         } else {
           setBackError(false);
-          console.log("done3");
+          location.reload();
         }
       })
       .catch((error) => {
         console.log(error);
-        // let arr = Object.values(error.response.data.errors);
-        // setBackError(arr);
       });
   };
 
@@ -114,7 +112,6 @@ const SingleCourse = () => {
       })
       .then((res) => {
         console.log(res.data);
-        console.log("done2");
         setBackError(false);
         changeCodeStateHandler(code);
       })
@@ -125,8 +122,6 @@ const SingleCourse = () => {
   const sendCodeHandler = (e) => {
     e.preventDefault();
     if (localStorage.getItem("token")) {
-      // const fData = new FormData();
-      // fData.append("code", e.target[0].value);
       const token = localStorage.getItem("token");
       const theCode = e.target[0].value;
       axios

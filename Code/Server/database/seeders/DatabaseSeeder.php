@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             CourseSeeder::class,
             CodeSeeder::class,
+            VideoSeeder::class,
         ]);
     }
 }
