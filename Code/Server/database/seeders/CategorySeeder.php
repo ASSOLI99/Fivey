@@ -39,5 +39,20 @@ class CategorySeeder extends Seeder
             'description' => "pursuit outside one's regular occupation engaged in especially for relaxation Writing is just a hobby of his. Her hobbies include gardening and bird-watching.",
             'image' => 'hobby.jpg',
         ]);
+                Category::create([
+            'name' => "Sport",
+            'description' => "Sport pertains to any form of competitive physical activity or game that aims to use, maintain, or improve physical ability and skills while providing enjoyment.",
+            'image' => 'sport.jpg',
+        ]);
+                Category::create([
+            'name' => "Technology",
+            'description' => "Smart, Innovative & Sustainble City With Invisible Infrastructure and Urban Development. Ideally Situated at The Crossroads of The World, it's Powerd by 100% Renewable Energy.",
+            'image' => 'technology.jpg',
+        ]);
+                Category::create([
+            'name' => "Economy",
+            'description' => "an innovation raises a company's stock price by more than it would otherwise, and competing company stock prices don't suffer as much.",
+            'image' => 'economy.jpg',
+        ]);
     }
 }

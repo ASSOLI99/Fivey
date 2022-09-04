@@ -107,6 +107,12 @@ function App() {
                 path="/course/:course_id/:video_id"
                 element={<SingleVideo />}
               />
+              <Route exact path={"/profile/:id"} element={<UserProfile />} />
+              <Route
+                exact
+                path={"profile/:id/courses"}
+                element={<UserCourses />}
+              />
 
               {!role && (
                 <>
@@ -120,12 +126,6 @@ function App() {
                   <Route exact path={"profile"}>
                     <Route exact index element={<Profile />} />
                     <Route exact path={"edit"} element={<EditProfile />} />
-                    <Route exact path={":id"} element={<UserProfile />} />
-                    <Route
-                      exact
-                      path={":id/courses"}
-                      element={<UserCourses />}
-                    />
                   </Route>
                 </>
               )}
