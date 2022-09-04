@@ -4,8 +4,9 @@ import { authActions } from "./store/auth-slice";
 import { userActions } from "./store/user-slice";
 import { useEffect } from "react";
 import axios from "axios";
-//user pages
+import "./App.css";
 import "./Admin/components/categories/pagination.css";
+//user pages
 import NavMenu from "./components/navbar/NavMenu";
 import FooterMenu from "./components/footer/FooterMenu";
 import Welcome from "./pages/Welcome";
@@ -22,6 +23,7 @@ import SingleCourses from "./components/createCourse/SingleCourse";
 import MyCourses from "./components/createCourse/myCourses";
 import Videos from "./components/createCourse/Videos";
 import SingleVideo from "./pages/SingleVideo";
+import UserProfile from "./components/profile/UserProfile";
 //Admin pages
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
@@ -33,8 +35,8 @@ import AdminUsers from "./Admin/components/users/Users";
 import AdminSingleUser from "./Admin/components/users/SingleUser";
 import AdminUserCourses from "./Admin/components/users/SingleCourses";
 import Other from "./Admin/components/other/Other";
-import "./App.css";
 import Code from "./Admin/components/code/Code";
+import UserCourses from "./components/profile/UserCourses";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,7 +49,6 @@ function App() {
       })
       .then((res) => {
         dispatch(authActions.loggingIn());
-        console.log(res.data);
         dispatch(userActions.setId(res.data.id));
         dispatch(userActions.setRole(res.data.role));
         dispatch(userActions.setName(res.data.name));
@@ -61,6 +62,7 @@ function App() {
         dispatch(userActions.setLinkedin(res.data.linkedin));
         dispatch(userActions.setDescription(res.data.description));
         dispatch(userActions.setUserName(res.data.userName));
+        console.log(res.data);
       });
   }, []);
 
@@ -73,8 +75,6 @@ function App() {
             <Routes>
               <Route path={"/Admin"}>
                 <Route index element={<AdminWelcome />} />
-                {/* element={<AdminWelcome />} */}
-                {/* element={<AdminCategories />} */}
                 <Route path={"category"}>
                   <Route index element={<AdminCategories />} />
                   <Route path={":id"} element={<SingleCat />} />
@@ -120,6 +120,12 @@ function App() {
                   <Route exact path={"profile"}>
                     <Route exact index element={<Profile />} />
                     <Route exact path={"edit"} element={<EditProfile />} />
+                    <Route exact path={":id"} element={<UserProfile />} />
+                    <Route
+                      exact
+                      path={":id/courses"}
+                      element={<UserCourses />}
+                    />
                   </Route>
                 </>
               )}

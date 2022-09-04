@@ -20,32 +20,33 @@ const CategoryMenu = (props) => {
     <>
       <Container fluid className="container-xl" key={props.uniqueKey}>
         <CategoryHead catName={props.catName} />
-        {props.isLoading && (
+        {props.isLoading ? (
           <div className="spinner-border text-warning ms-5" role="status"></div>
+        ) : (
+          <Row className="d-flex justify-content-center">
+            {allCourses.map((course, index) => {
+              return (
+                <Col key={index} className="col-12 col-sm-6 col-md-4  col-xl-3">
+                  <Link
+                    to={`/course/${course.id}`}
+                    className="text-decoration-none"
+                  >
+                    <CardMenu
+                      hasRate={4}
+                      description={course.description}
+                      title={course.name}
+                      hasDetails={true}
+                      hasCart={true}
+                      time={course.time}
+                      secondDescription={course.second_description}
+                      cardImage={`http://localhost:8000/img/course/${course.image}`}
+                    />
+                  </Link>
+                </Col>
+              );
+            })}
+          </Row>
         )}
-        <Row className="d-flex justify-content-center">
-          {allCourses.map((course, index) => {
-            return (
-              <Col key={index} className="col-12 col-sm-6 col-md-4  col-xl-3">
-                <Link
-                  to={`/course/${course.id}`}
-                  className="text-decoration-none"
-                >
-                  <CardMenu
-                    hasRate={4}
-                    description={course.description}
-                    title={course.name}
-                    hasDetails={true}
-                    hasCart={true}
-                    time={course.time}
-                    secondDescription={course.second_description}
-                    cardImage={`http://localhost:8000/img/course/${course.image}`}
-                  />
-                </Link>
-              </Col>
-            );
-          })}
-        </Row>
       </Container>
     </>
   );

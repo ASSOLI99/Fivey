@@ -4,12 +4,11 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Pagination from "react-js-pagination";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CardMenu from "../UI/card/CardMenu";
-import "./MyCourses.css";
 
-const MyCourses = (props) => {
-  const userId = useSelector((state) => state.user.id);
+const UserCourses = (props) => {
+  const { id } = useParams();
   const token = localStorage.getItem("token");
   const [page, setPage] = useState(1);
   const [courses, setCourses] = useState({
@@ -19,7 +18,7 @@ const MyCourses = (props) => {
     total: "",
   });
   useEffect(() => {
-    const url = `http://localhost:8000/api/course/${userId}?page=${page}`;
+    const url = `http://localhost:8000/api/user/courses/${id}?page=${page}`;
     axios
       .get(url, {
         headers: { Authorization: `Bearer ${token}` },
@@ -49,7 +48,10 @@ const MyCourses = (props) => {
           {data.map((course, index) => {
             return (
               <Col key={index} className="col-12 col-sm-6 col-md-4  col-xl-3">
-                <Link to={`${course.id}`} className="text-decoration-none">
+                <Link
+                  to={`/course/${course.id}`}
+                  className="text-decoration-none"
+                >
                   <CardMenu
                     hasRate={4}
                     description={course.description}
@@ -79,4 +81,4 @@ const MyCourses = (props) => {
     </div>
   );
 };
-export default MyCourses;
+export default UserCourses;

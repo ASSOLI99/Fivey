@@ -28,6 +28,9 @@ Route::get('/category/dropMenu', [CategoryController::class, 'dropMenu']);
 Route::get('/courses/{id}', [CourseController::class, 'show']);
 Route::get('/fullCourse/{id}', [CourseController::class, 'fullCourse']);
 Route::get('/videos/{id}', [VideoController::class, 'show']);
+Route::get('/user/profile/{id}', [AuthController::class, 'showOne']);
+Route::get('/user/courses/{id}', [CourseController::class, 'userCourses']);
+
 //privet
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
