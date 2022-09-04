@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
             'image' => 'self-development.jpg',
         ]);
         Category::create([
-            'name' => "Montage & Design",
+            'name' => "Montage&Design",
             'description' => "Developers have to have some skills in a wide variety of coding niches.",
             'image' => 'development.jpg',
         ]);

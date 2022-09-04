@@ -10,6 +10,10 @@ use Symfony\Component\Console\Input\Input;
 
 class CategoryController extends Controller
 {
+    public function categoriesCards(){
+        $category = Category::select('id', 'name')->inRandomOrder()->take(8)->get();
+        return response($category, 200);
+    }
 public function dropMenu()
     {
         $category = Category::select('id', 'name')->orderBy('id')->take(12)->get();
@@ -22,7 +26,12 @@ public function dropMenu()
     }
     public function allCat()
     {
-        $category = Category::select('id', 'name', 'description', 'image')->orderBy('id')->take(5)->get();
+        $category = Category::select('id', 'name')->orderBy('id')->take(5)->get();
+        return response($category, 200);
+    }
+     public function allCatRand()
+    {
+        $category = Category::select('id', 'name')->inRandomOrder()->paginate(6);
         return response($category, 200);
     }
     public function catSelect()

@@ -21,7 +21,7 @@ const Categories = () => {
   const [number, setNumber] = useState(1);
   const [page, setPage] = useState(1);
   const [categories, setCategories] = useState({
-    data: ["Array", " Array"],
+    data: [],
     current_page: "",
     per_page: "",
     total: "",

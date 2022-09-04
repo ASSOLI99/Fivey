@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import CardMenu from "../../../components/UI/card/CardMenu";
@@ -162,11 +162,11 @@ const SingleCat = () => {
             </Button>
             <p className="text-danger mt-2">
               {backError &&
-                backError.map((error) => {
+                backError.map((error, index) => {
                   return (
-                    <>
+                    <Fragment key={index}>
                       <li className="list-unstyled">- {error}</li>
-                    </>
+                    </Fragment>
                   );
                 })}
             </p>

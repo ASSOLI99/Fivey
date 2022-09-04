@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 import "./CardMenu.css";
 const CardMenu = (props) => {
   return (
-    <Card className="w-full cardWithImage border-0">
+    <Card className="w-full cardWithImage border-0 shadow">
       {props.hasCart && (
         <span className="loveElement">
           <i className="bi bi-cart-plus"></i>

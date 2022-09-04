@@ -13,7 +13,7 @@ const HeaderMenu = (props) => {
               <hr />
               {props.allCategory.map((category) => {
                 return (
-                  <p>
+                  <p key={category.name}>
                     <Link
                       className="justify-content-between d-flex text-black text-decoration-none"
                       to={`categories/${category.name}`}

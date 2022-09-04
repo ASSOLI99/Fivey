@@ -11,7 +11,6 @@ const CategoryMenu = (props) => {
     axios
       .get(`http://127.0.0.1:8000/api/courses/${props.theId}`)
       .then((res) => {
-        console.log(res.data);
         setAllCourses(res.data);
         props.setIsLoading(false);
       });
