@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'email' => 'gamer@gmail.com',
-            'password' => '12345._Aa',
+            'password' => Hash::make('12345._Aa'),
             'name' => 'Mark Legend',
             'userName' => 'Mark99',
             'description' => 'Gamer Developer with more than 7 years experince using C#, Java, Unreal Engin, Unity. Gamer Developer with more than 7years experince using C#, Java, Unreal Engin, Unity',
@@ -31,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'front@gmail.com',
-            'password' => '12345._Aa',
+            'password' => Hash::make('12345._Aa'),
             'name' => 'Mohammed Majed',
             'userName' => 'Moh99',
             'description' => 'Front-End Developer with more than 12 years experince using HTML, CSS, Javascript, React. Front-End Developer with more than 12 years experince using HTML, CSS, Javascript, React.',
@@ -45,7 +46,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'fullStack@gmail.com',
-            'password' => '12345._Aa',
+            'password' => Hash::make('12345._Aa'),
             'name' => 'Leon Mark',
             'userName' => 'Leo99',
             'description' => 'full-stack Developer with more than 10 years experince using HTML, CSS, Javascript, React, PHP, MySQL, Laravel, full-stack Developer with more than 10 years experince using HTML, CSS, Javascript, React, PHP, MySQL, Laravel.',
@@ -59,7 +60,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'admin@gmail.com',
-            'password' => '',
+            'password' => Hash::make('12345_54321Aa'),
             'name' => 'Admin',
             'userName' => 'Admin',
             'description' => 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem',
@@ -73,7 +74,7 @@ class UserSeeder extends Seeder
         ]);
           User::create([
             'email' => 'sora@gmail.com',
-            'password' => '12345._Aa',
+            'password' => Hash::make('12345._Aa'),
             'name' => 'Sora Rona',
             'userName' => 'Sora99',
             'description' => 'Business Women and founder for 4 big companies',
@@ -87,7 +88,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'john@gmail.com',
-            'password' => '12345._Aa',
+            'password' => Hash::make('12345._Aa'),
             'name' => 'John Ma',
             'userName' => 'john99',
             'description' => 'author of 3 books achieved many prizes',
@@ -101,7 +102,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'Samer@gmail.com',
-            'password' => '12345._Aa',
+            'password' => Hash::make('12345._Aa'),
             'name' => 'Samer Majdi',
             'userName' => 'Samer99',
             'description' => 'Job Coach and business owner of 2 companies',
