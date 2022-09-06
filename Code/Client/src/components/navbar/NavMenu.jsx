@@ -6,6 +6,8 @@ import {
   Container,
   NavDropdown,
   Dropdown,
+  Modal,
+  Button,
 } from "react-bootstrap";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -44,11 +46,38 @@ const NavMenu = () => {
   };
   const searchHandler = (e) => {
     e.preventDefault();
-    console.log("do");
-    navigate(`/search/${e.target.children[1].value}`);
+    if (e.target.children[1].value) {
+      navigate(`/search/${e.target.children[1].value}`);
+    } else {
+      navigate(`/search/${e.target.children[0].value}`);
+    }
   };
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
+      <Modal show={show} className="options" onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className="text-black">Search</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={searchHandler}>
+            <Form.Control
+              type="text"
+              className="mb-3"
+              name="search"
+              placeholder="Find course"
+              autoFocus
+            />
+
+            <Button type="submit" variant="warning" onClick={handleClose}>
+              Search
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
       {/* top navbar start */}
       <Navbar
         className={`${scroll ? "back-nav" : "top-nav"} bg-main-blue text-light`}
@@ -264,7 +293,7 @@ const NavMenu = () => {
             <span>Categories</span>
           </Nav.Link>
 
-          <Nav.Link as={Link} to="/">
+          <Nav.Link onClick={handleShow}>
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-search"></i>
             </span>
