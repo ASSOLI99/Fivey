@@ -65,7 +65,7 @@ const Create = () => {
   return (
     <div className="category">
       <Container fluid className="container-xl text-center">
-        <h1>Courses</h1>
+        <h1>Create Course</h1>
         <Row className="d-flex justify-content-center text-start">
           <Col className="options col-12 col-md-9 col-lg-8 col-xl-6 ">
             <Form onSubmit={submitHandler}>
