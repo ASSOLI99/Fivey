@@ -24,6 +24,7 @@ import MyCourses from "./components/createCourse/myCourses";
 import Videos from "./components/createCourse/Videos";
 import SingleVideo from "./pages/SingleVideo";
 import UserProfile from "./components/profile/UserProfile";
+import OneCat from "./components/category/OneCat";
 //Admin pages
 import AdminWelcome from "./Admin/pages/Welcome";
 import AdminNavMenu from "./Admin/components/navbar/NavMenu";
@@ -100,7 +101,10 @@ function App() {
             <Routes>
               <Route exact path={"/"} element={<Welcome />} />
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/categories" element={<Categories />} />
+              <Route exact path="/categories">
+                <Route exact index element={<Categories />} />
+                <Route exact path={":name"} element={<OneCat />} />
+              </Route>
               <Route exact path="/course/:id" element={<SingleCourse />} />
               <Route
                 exact

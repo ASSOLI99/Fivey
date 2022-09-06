@@ -23,7 +23,6 @@ const Categories = () => {
       .then((res) => {
         console.log(res.data);
         setAllCategory(res.data);
-        // console.log(res.data);
       });
   }, [page]);
   const { data, current_page, per_page, total } = allCategory;

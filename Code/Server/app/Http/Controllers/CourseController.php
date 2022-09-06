@@ -168,6 +168,10 @@ class CourseController extends Controller
        $courses = DB::table('courses')->where('user_id','=',$id)->paginate(8);
         return response($courses, 200);
     }
+    public function categoryCourses($id){
+       $courses = DB::table('courses')->where('category_id','=',$id)->paginate(12);
+        return response($courses, 200);
+    }
       public function userCourse($id){
        $courses = DB::table('courses')->where('id','=',$id)->select('user_id','image','time')->get();
         return response($courses, 200);

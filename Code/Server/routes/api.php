@@ -32,8 +32,9 @@ Route::get('/fullCourse/{id}', [CourseController::class, 'fullCourse']);
 Route::get('/videos/{id}', [VideoController::class, 'show']);
 Route::get('/user/profile/{id}', [AuthController::class, 'showOne']);
 Route::get('/user/courses/{id}', [CourseController::class, 'userCourses']);
-
-//privet
+    Route::get('/categories/name/{id}', [CategoryController::class, 'showName']);
+ Route::get('/courses/category/{id}', [CourseController::class, 'categoryCourses']);
+    //privet
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
     // Route::get('/logout', [AuthController::class,'logout']);
@@ -43,9 +44,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy']);
     Route::get('/categories', [CategoryController::class, 'index']);
     Route::get('/categories/{id}', [CategoryController::class, 'show']);
+
     //section _\|/_ courses
     Route::get('/courses', [CourseController::class, 'index']);
-    // Route::get('/courses/{id}', [CourseController::class, 'showOne']);
+   
     Route::post('/courses/add', [CourseController::class, 'store']);
     Route::put('/courses/edit/{id}', [CourseController::class, 'update']);
     Route::delete('/courses/delete/{id}', [CourseController::class, 'destroy']);

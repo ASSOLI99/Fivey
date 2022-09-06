@@ -72,6 +72,11 @@ public function dropMenu()
         $category = Category::where('id', $id)->get();
         return response($category);
     }
+     public function showName($id)
+    {
+         $category = DB::table('categories')->where('name','=',$id)->select('id')->get();
+        return response($category, 200);
+    }
     public function update(Request $request, $id)
     {
 
