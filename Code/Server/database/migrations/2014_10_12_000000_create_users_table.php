@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('userName')->unique()->default('');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('description')->default("")->nullable();
+            $table->longText('description')->default("")->nullable();
             $table->string('image')->nullable();
             $table->tinyInteger("role")->default(1);
             $table->string("field")->default("")->nullable();

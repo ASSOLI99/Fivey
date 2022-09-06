@@ -5,7 +5,10 @@ const CategoryHead = (props) => {
     <div className=" d-flex align-items-center my-4 ">
       <p className="my-0 fs-4 category-link">
         Featured Courses in{" "}
-        <Link to="category-page" className="text-decoration-none">
+        <Link
+          to={`/categories/${props.catName}`}
+          className="text-decoration-none"
+        >
           {`${props.catName}`}
         </Link>
       </p>

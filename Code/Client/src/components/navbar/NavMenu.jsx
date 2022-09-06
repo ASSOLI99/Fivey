@@ -211,9 +211,15 @@ const NavMenu = () => {
                   </li>
                 ) : (
                   <li>
-                    <Nav.Link as={Link} to="/watch" className="middle-link">
-                      watch <i className="bi bi-play-circle"></i>
-                    </Nav.Link>
+                    {role ? (
+                      <Nav.Link as={Link} to="/watch" className="middle-link">
+                        watch <i className="bi bi-play-circle"></i>
+                      </Nav.Link>
+                    ) : (
+                      <Nav.Link as={Link} to="/login" className="middle-link">
+                        Login <i className="bi bi-box-arrow-in-right"></i>
+                      </Nav.Link>
+                    )}
                   </li>
                 )}
               </ul>
