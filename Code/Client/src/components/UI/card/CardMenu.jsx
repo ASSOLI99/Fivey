@@ -3,11 +3,11 @@ import "./CardMenu.css";
 const CardMenu = (props) => {
   return (
     <Card className="w-full cardWithImage border-0 shadow">
-      {props.hasCart && (
+      {/* {props.hasCart && (
         <span className="loveElement">
           <i className="bi bi-cart-plus"></i>
         </span>
-      )}
+      )} */}
 
       <div className="img-handler">
         <Card.Img
