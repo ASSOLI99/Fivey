@@ -257,7 +257,7 @@ const NavMenu = () => {
         fixed="bottom"
       >
         <Container fluid className="d-flex justify-content-around px-0">
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/categories">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-grid"></i>
             </span>
@@ -276,7 +276,12 @@ const NavMenu = () => {
             </span>
             <span>My Learnings</span>
           </Nav.Link>
-
+          <Nav.Link as={Link} to="/categories">
+            <span className="d-flex justify-content-center nav-icon">
+              <i className="bi bi-fire"></i>
+            </span>
+            <span>Trending</span>
+          </Nav.Link>
           <Nav.Link as={Link} to="/">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-cart"></i>
