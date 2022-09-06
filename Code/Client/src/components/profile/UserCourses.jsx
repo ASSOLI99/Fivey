@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Pagination from "react-js-pagination";
-import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import CardMenu from "../UI/card/CardMenu";
 

@@ -8,7 +8,7 @@ import {
   Dropdown,
 } from "react-bootstrap";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth-slice";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -18,6 +18,7 @@ import FiveyLogo from "./Fivey-navbar.png";
 import axios from "axios";
 const NavMenu = () => {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/category/dropMenu")
@@ -41,7 +42,11 @@ const NavMenu = () => {
     localStorage.removeItem("token");
     location.reload();
   };
-
+  const searchHandler = (e) => {
+    e.preventDefault();
+    console.log("do");
+    navigate(`/search/${e.target.children[1].value}`);
+  };
   return (
     <>
       {/* top navbar start */}
@@ -224,15 +229,20 @@ const NavMenu = () => {
                 )}
               </ul>
             </Nav>
-            <Form className="position-relative">
+            <Form
+              className="position-relative"
+              action="go"
+              onSubmit={searchHandler}
+            >
               <span className="position-absolute search-icon-input">
                 <i className="bi bi-search"></i>
               </span>
               <Form.Control
                 type="search"
-                placeholder="Search Fivey"
+                placeholder="Find Courses"
                 aria-label="Search"
                 className="search-input"
+                name="search"
               />
             </Form>
           </Navbar.Collapse>

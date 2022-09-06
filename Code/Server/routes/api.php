@@ -34,6 +34,7 @@ Route::get('/user/profile/{id}', [AuthController::class, 'showOne']);
 Route::get('/user/courses/{id}', [CourseController::class, 'userCourses']);
     Route::get('/categories/name/{id}', [CategoryController::class, 'showName']);
  Route::get('/courses/category/{id}', [CourseController::class, 'categoryCourses']);
+ Route::get('/courses/search/{id}', [CourseController::class, 'search']);
     //privet
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);

@@ -8,11 +8,6 @@ const CardMenu = (props) => {
           <i className="bi bi-cart-plus"></i>
         </span>
       )}
-      {/* {!props.hasCart && (
-        <span className="loveElement">
-          <i className="bi bi-cart-plus"></i>
-        </span>
-      )} */}
 
       <div className="img-handler">
         <Card.Img

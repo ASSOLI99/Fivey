@@ -89,6 +89,11 @@ class CourseController extends Controller
         $courses = Course::where('category_id', $id)->take(8)->get();
         return response($courses);
     }
+    public function search($id)
+    {
+        $courses = Course::where('name', 'like', '%' . $id . '%')->orderBy('name')->paginate(12);
+        return response($courses);
+    }
      public function showOne($id)
     {
         $courses = Course::where('id', $id)->get();

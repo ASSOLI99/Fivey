@@ -38,6 +38,7 @@ import AdminUserCourses from "./Admin/components/users/SingleCourses";
 import Other from "./Admin/components/other/Other";
 import Code from "./Admin/components/code/Code";
 import UserCourses from "./components/profile/UserCourses";
+import Search from "./components/search/Search";
 
 function App() {
   const dispatch = useDispatch();
@@ -101,6 +102,7 @@ function App() {
             <Routes>
               <Route exact path={"/"} element={<Welcome />} />
               <Route exact path="/about" element={<About />} />
+              <Route exact path="/search/:search" element={<Search />} />
               <Route exact path="/categories">
                 <Route exact index element={<Categories />} />
                 <Route exact path={":name"} element={<OneCat />} />

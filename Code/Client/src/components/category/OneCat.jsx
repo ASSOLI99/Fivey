@@ -7,7 +7,7 @@ import CategoryHead from "../UI/categoryHead/CategoryHead";
 import Pagination from "react-js-pagination";
 const OneCat = () => {
   const [allCourses, setAllCourses] = useState({
-    data: [""],
+    data: [],
     current_page: "",
     per_page: "",
     total: "",
