@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserCourse;
 use App\Http\Requests\StoreUserCourseRequest;
 use App\Http\Requests\UpdateUserCourseRequest;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,10 +51,14 @@ class UserCourseController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
         }
+        
         $nCourse = new UserCourse();
         $nCourse->user_id = $request->user_id;
         $nCourse->course_id = $request->course_id;
         $nCourse->save();
+        $course = Course::find($request->course_id);
+        $course->students = $course->students + 1;
+        $course->update();
         return response($nCourse);
     }
 

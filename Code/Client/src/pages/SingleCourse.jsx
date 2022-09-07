@@ -131,13 +131,18 @@ const SingleCourse = () => {
           },
         })
         .then((res) => {
-          console.log(res.data[0]);
-          console.log("done");
-          setBackError(false);
-          if (res.data[0].state == 0) {
-            setBackError(["this code already used!"]);
+          console.log(res.data);
+          if (res.data == "wrong code") {
+            setBackError(["Wrong code!"]);
+            console.log(0);
           } else {
-            sendCodeResultHandler(res.data[0]);
+            setBackError(false);
+            console.log(1);
+            if (res.data[0].state == 0) {
+              setBackError(["this code already used!"]);
+            } else {
+              sendCodeResultHandler(res.data[0]);
+            }
           }
         })
         .catch((error) => {

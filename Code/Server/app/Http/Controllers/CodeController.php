@@ -64,6 +64,9 @@ class CodeController extends Controller
      public function show($id)
     {
         $code = Code::where('code', $id)->get();
+        if(count($code)==0){
+            return response("wrong code");
+        }
         return response($code);
     }
 
