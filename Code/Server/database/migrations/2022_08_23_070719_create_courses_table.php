@@ -27,6 +27,8 @@ return new class extends Migration
             $table->integer('time');
             $table->string("image");
             $table->string('language');
+            $table->integer('students')->default(1);
+
             $table->timestamps();
         });
     }

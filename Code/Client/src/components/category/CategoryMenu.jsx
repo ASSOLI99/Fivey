@@ -34,6 +34,7 @@ const CategoryMenu = (props) => {
                       hasRate={4}
                       description={course.description}
                       title={course.name}
+                      students={course.students}
                       hasDetails={true}
                       hasCart={true}
                       time={course.time}

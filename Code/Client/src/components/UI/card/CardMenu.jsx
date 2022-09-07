@@ -92,7 +92,16 @@ const CardMenu = (props) => {
         {props.hasDetails && (
           <div className="d-flex justify-content-between align-items-end">
             <p className="text-secondary">
-              <span className="students">12511</span> Student
+              <span className="students">
+                {props.students
+                  ? props.students < 50
+                    ? "less than 50"
+                    : props.students >= 100
+                    ? props.students
+                    : "less than 100"
+                  : "12345"}
+              </span>{" "}
+              Students
             </p>
             <div className="main-text d-flex flex-column align-items-end">
               <small className="fw-normal mb-0 ">Hours</small>
