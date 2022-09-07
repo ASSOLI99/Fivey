@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CodeController;
 use App\Http\Controllers\CourseController;
@@ -32,9 +33,9 @@ Route::get('/fullCourse/{id}', [CourseController::class, 'fullCourse']);
 Route::get('/videos/{id}', [VideoController::class, 'show']);
 Route::get('/user/profile/{id}', [AuthController::class, 'showOne']);
 Route::get('/user/courses/{id}', [CourseController::class, 'userCourses']);
-    Route::get('/categories/name/{id}', [CategoryController::class, 'showName']);
- Route::get('/courses/category/{id}', [CourseController::class, 'categoryCourses']);
- Route::get('/courses/search/{id}', [CourseController::class, 'search']);
+Route::get('/categories/name/{id}', [CategoryController::class, 'showName']);
+Route::get('/courses/category/{id}', [CourseController::class, 'categoryCourses']);
+Route::get('/courses/search/{id}', [CourseController::class, 'search']);
     //privet
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
@@ -76,4 +77,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/code/edit/{id}', [CodeController::class, 'update']);
     Route::get('/code', [CodeController::class, 'index']);
     Route::get('/code/{id}', [CodeController::class, 'show']);
+    //section _\|/_ cart
+    Route::post('/cart/add', [CartController::class, 'store']);
+    Route::get('/cart/{id}', [CartController::class, 'show']);
+    Route::delete('/cart/{id}', [CartController::class, 'destroy']);
+    Route::get('/cart/length/{id}', [CartController::class, 'length']);
+
 });

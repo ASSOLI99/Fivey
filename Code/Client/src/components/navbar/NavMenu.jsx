@@ -20,6 +20,8 @@ import FiveyLogo from "./Fivey-navbar.png";
 import axios from "axios";
 const NavMenu = () => {
   const [categories, setCategories] = useState([]);
+  const [cartLength, setCartLength] = useState(0);
+  const userId = useSelector((state) => state.user.id);
   const navigate = useNavigate();
   useEffect(() => {
     axios
@@ -38,6 +40,16 @@ const NavMenu = () => {
       setScroll(window.scrollY > 20);
     });
   }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(`http://127.0.0.1:8000/api/cart/length/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setCartLength(res.data.length);
+      });
+  }, [userId]);
   const dispatch = useDispatch();
   const logoutHandler = () => {
     dispatch(authActions.loggingOut());
@@ -111,8 +123,12 @@ const NavMenu = () => {
                 <Nav.Link
                   as={Link}
                   to="/cart"
-                  className="fs-4 text-light d-none d-md-block"
+                  className="cart-icon position-relative fs-4 text-light d-none d-md-block"
                 >
+                  {cartLength != 0 && (
+                    <span className="cart-length-top">{cartLength}</span>
+                  )}
+
                   <i className="bi bi-cart"></i>
                 </Nav.Link>
               )}
@@ -311,8 +327,11 @@ const NavMenu = () => {
             </span>
             <span>Trending</span>
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
-            <span className="d-flex justify-content-center nav-icon">
+          <Nav.Link as={Link} to="/cart">
+            <span className="d-flex justify-content-center nav-icon position-relative">
+              {cartLength != 0 && (
+                <span className="cart-length-bottom">{cartLength}</span>
+              )}
               <i className="bi bi-cart"></i>
             </span>
             <span>Cart</span>

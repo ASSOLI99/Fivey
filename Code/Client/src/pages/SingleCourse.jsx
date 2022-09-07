@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Pagination from "react-js-pagination";
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Button, Form, Modal } from "react-bootstrap";
 const SingleCourse = () => {
   const userId = useSelector((state) => state.user.id);
   const { id } = useParams();
@@ -147,7 +147,31 @@ const SingleCourse = () => {
       setBackError(["please Login"]);
     }
   };
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [message, setMessage] = useState(false);
+  const addToCartHandler = () => {
+    const fData = new FormData();
+    fData.append("user_id", userId);
+    fData.append("course_id", id);
+    const token = localStorage.getItem("token");
+    axios
+      .post("http://127.0.0.1:8000/api/cart/add", fData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setMessage("Added to your Cart");
+        window.scroll(0, 0);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="single-course">
       <link
@@ -161,6 +185,7 @@ const SingleCourse = () => {
         <main className="">
           <section className="course-details ">
             <div className="container position-relative">
+              {message && <Alert variant="success my-4 p-3">{message}</Alert>}
               <div className={`options code-options ${codeClasses}`}>
                 <Form onSubmit={sendCodeHandler} className="text-center">
                   <Form.Control
@@ -210,15 +235,57 @@ const SingleCourse = () => {
                   </p>
                   <p className="difficulty">{courseData.course_language}</p>
                 </div>
+                <Modal show={show} onHide={handleClose} animation={false}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Please Login</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body className="text-danger">
+                    Sorry, you must be Logged in!
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Link
+                      to="/login"
+                      className="btn btn-warning"
+                      onClick={handleClose}
+                    >
+                      Login
+                    </Link>
+                  </Modal.Footer>
+                </Modal>
                 <div className="pricing">
                   {!owned ? (
-                    <>
-                      <button className="buy-btn">Buy course</button>
-                      <button className="add-btn">Add to cart</button>
-                      <button className="code-btn" onClick={useCodeHandler}>
-                        Use Code
-                      </button>
-                    </>
+                    userId ? (
+                      <>
+                        <button className="buy-btn">Buy course</button>
+                        <button
+                          className="add-btn"
+                          onClick={addToCartHandler}
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          data-bs-title="Tooltip on top"
+                        >
+                          Add to cart
+                        </button>
+                        <button className="code-btn" onClick={useCodeHandler}>
+                          Use Code
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button className="buy-btn" onClick={handleShow}>
+                          Buy course
+                        </button>
+                        <button className="add-btn" onClick={handleShow}>
+                          Add to cart
+                        </button>
+                        <button className="code-btn" onClick={handleShow}>
+                          Use Code
+                        </button>
+                      </>
+                    )
                   ) : (
                     <button className="add-btn">
                       <i className="bi bi-bookmark-star"></i> Rate Course

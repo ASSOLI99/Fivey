@@ -103,6 +103,28 @@
 .user-drop-down div {
   transform: translate(-120px, 10px);
 }
+.cart-length-top {
+  color: #f8c600;
+  right: 0;
+  top: 0;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  background-color: #f8f9fa;
+  padding: 1px 7px;
+  border-radius: 50%;
+}
+.cart-length-bottom {
+  color: white;
+  right: -6px;
+  top: -3px;
+  font-size: 14px;
+  position: absolute;
+  background-color: #f8c600;
+  padding: 1px 7px;
+  border-radius: 50%;
+  font-weight: bold;
+}
 /* top navbar end */
 /* bottom navbar start*/
 

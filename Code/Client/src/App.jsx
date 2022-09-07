@@ -39,11 +39,14 @@ import Other from "./Admin/components/other/Other";
 import Code from "./Admin/components/code/Code";
 import UserCourses from "./components/profile/UserCourses";
 import Search from "./components/search/Search";
+import { useState } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const role = useSelector((state) => state.user.role);
   useEffect(() => {
+    setIsLoading(true);
     const token = localStorage.getItem("token");
     axios
       .get("http://127.0.0.1:8000/api/user", {
@@ -65,99 +68,109 @@ function App() {
         dispatch(userActions.setDescription(res.data.description));
         dispatch(userActions.setUserName(res.data.userName));
         console.log(res.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <div className="App">
-      <BrowserRouter>
-        {role === 0 ? (
-          <>
-            <AdminNavMenu />
-            <Routes>
-              <Route path={"/Admin"}>
-                <Route index element={<AdminWelcome />} />
-                <Route path={"category"}>
-                  <Route index element={<AdminCategories />} />
-                  <Route path={":id"} element={<SingleCat />} />
-                </Route>
-                <Route path={"courses"}>
-                  <Route index element={<AdminCourses />} />
-                  <Route path={":id"} element={<AdminSingleCourse />} />
-                </Route>
-                <Route path={"users"}>
-                  <Route index element={<AdminUsers />} />
-                  <Route path={":id"} element={<AdminSingleUser />} />
-                  <Route path={":user/:id"} element={<AdminUserCourses />} />
-                </Route>
-                <Route path="other" element={<Other />} />
-                <Route path="codes" element={<Code />} />
-              </Route>
-            </Routes>
-            <div className="helper d-block d-md-none"></div>
-          </>
-        ) : (
-          <>
-            <NavMenu />
-            <Routes>
-              <Route exact path={"/"} element={<Welcome />} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/search/:search" element={<Search />} />
-              <Route exact path="/categories">
-                <Route exact index element={<Categories />} />
-                <Route exact path={":name"} element={<OneCat />} />
-              </Route>
-              <Route exact path="/course/:id" element={<SingleCourse />} />
-              <Route
-                exact
-                path="/course/:course_id/:video_id"
-                element={<SingleVideo />}
-              />
-              <Route exact path={"/profile/:id"} element={<UserProfile />} />
-              <Route
-                exact
-                path={"profile/:id/courses"}
-                element={<UserCourses />}
-              />
-
-              {!role && (
-                <>
-                  <Route exact path="/login" element={<Login />} />
-                  <Route exact path="/register" element={<Register />} />
-                </>
-              )}
-              {role && (
-                <>
-                  <Route exact path="/cart" element={<Cart />} />
-                  <Route exact path={"profile"}>
-                    <Route exact index element={<Profile />} />
-                    <Route exact path={"edit"} element={<EditProfile />} />
+      {!isLoading ? (
+        <BrowserRouter>
+          {role === 0 ? (
+            <>
+              <AdminNavMenu />
+              <Routes>
+                <Route path={"/Admin"}>
+                  <Route index element={<AdminWelcome />} />
+                  <Route path={"category"}>
+                    <Route index element={<AdminCategories />} />
+                    <Route path={":id"} element={<SingleCat />} />
                   </Route>
-                </>
-              )}
-              {role == 2 && (
-                <>
-                  <Route exact path={"Courses"}>
-                    <Route exact path={"myCourses"} element={<MyCourses />} />
-                    <Route
-                      exact
-                      path={"myCourses/:id"}
-                      element={<SingleCourses />}
-                    />
-                    <Route
-                      path={":myCourses/:id/videos"}
-                      element={<Videos />}
-                    />
-
-                    <Route exact path={"create"} element={<Create />} />
+                  <Route path={"courses"}>
+                    <Route index element={<AdminCourses />} />
+                    <Route path={":id"} element={<AdminSingleCourse />} />
                   </Route>
-                </>
-              )}
-            </Routes>
-            <FooterMenu />
-          </>
-        )}
-      </BrowserRouter>
+                  <Route path={"users"}>
+                    <Route index element={<AdminUsers />} />
+                    <Route path={":id"} element={<AdminSingleUser />} />
+                    <Route path={":user/:id"} element={<AdminUserCourses />} />
+                  </Route>
+                  <Route path="other" element={<Other />} />
+                  <Route path="codes" element={<Code />} />
+                </Route>
+              </Routes>
+              <div className="helper d-block d-md-none"></div>
+            </>
+          ) : (
+            <>
+              <NavMenu />
+              <Routes>
+                <Route exact path={"/"} element={<Welcome />} />
+                <Route exact path="/about" element={<About />} />
+                <Route exact path="/search/:search" element={<Search />} />
+                <Route exact path="/categories">
+                  <Route exact index element={<Categories />} />
+                  <Route exact path={":name"} element={<OneCat />} />
+                </Route>
+                <Route exact path="/course/:id" element={<SingleCourse />} />
+                <Route
+                  exact
+                  path="/course/:course_id/:video_id"
+                  element={<SingleVideo />}
+                />
+                <Route exact path={"/profile/:id"} element={<UserProfile />} />
+                <Route
+                  exact
+                  path={"profile/:id/courses"}
+                  element={<UserCourses />}
+                />
+
+                {!role && (
+                  <>
+                    <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/register" element={<Register />} />
+                  </>
+                )}
+                {role && (
+                  <>
+                    <Route exact path="/cart" element={<Cart />} />
+                    <Route exact path={"profile"}>
+                      <Route exact index element={<Profile />} />
+                      <Route exact path={"edit"} element={<EditProfile />} />
+                    </Route>
+                  </>
+                )}
+                {role == 2 && (
+                  <>
+                    <Route exact path={"Courses"}>
+                      <Route exact path={"myCourses"} element={<MyCourses />} />
+                      <Route
+                        exact
+                        path={"myCourses/:id"}
+                        element={<SingleCourses />}
+                      />
+                      <Route
+                        path={":myCourses/:id/videos"}
+                        element={<Videos />}
+                      />
+
+                      <Route exact path={"create"} element={<Create />} />
+                    </Route>
+                  </>
+                )}
+              </Routes>
+              <FooterMenu />
+            </>
+          )}
+        </BrowserRouter>
+      ) : (
+        <div className="loader">
+          <div className="spinner-border text-warning ms-5" role="status"></div>
+        </div>
+      )}
     </div>
   );
 }

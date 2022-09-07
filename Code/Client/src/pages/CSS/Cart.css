@@ -161,5 +161,11 @@
     margin-bottom: 20px;
   }
 }
+.item-image {
+  transition: var(--main-transition);
+}
+.item-image:hover {
+  filter: grayscale(100%);
+}
 /* cart end */
 /* main end */
