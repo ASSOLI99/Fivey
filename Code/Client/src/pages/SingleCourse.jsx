@@ -164,13 +164,10 @@ const SingleCourse = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
-        setMessage("Added to your Cart");
+        setMessage(res.data);
         window.scroll(0, 0);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
   return (
     <div className="single-course">
@@ -235,7 +232,7 @@ const SingleCourse = () => {
                   </p>
                   <p className="difficulty">{courseData.course_language}</p>
                 </div>
-                <Modal show={show} onHide={handleClose} animation={false}>
+                <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
                     <Modal.Title>Please Login</Modal.Title>
                   </Modal.Header>

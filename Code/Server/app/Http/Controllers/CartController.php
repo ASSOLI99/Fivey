@@ -38,12 +38,19 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+ $test = DB::table('carts')
+           ->where('user_id', '=', $request->user_id)->where('course_id', '=', $request->course_id)->get();
+        if(count($test) == 0){
         $cart = new Cart();
         $cart->user_id = $request->user_id;
         $cart->course_id = $request->course_id;
-
         $cart->save();
+            return response("Added to your Cart",200);
+            
+    }else{
+ return response("Already in the cart",200);
+    }
     }
 
     /**

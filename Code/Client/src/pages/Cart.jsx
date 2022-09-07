@@ -34,7 +34,6 @@ const Cart = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        console.log(res);
         setIsLoading(false);
       });
     setNumber(number + 1);

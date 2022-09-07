@@ -63,7 +63,7 @@ class CourseSeeder extends Seeder
             'language' => 'English'
         ]);
         Course::create([
-            'user_id' => 4,
+            'user_id' => 2,
             'category_id' => '2',
             'image' => 'business.jpg',
             'name' => 'How to grew your Business',
@@ -207,7 +207,7 @@ class CourseSeeder extends Seeder
             'language' => 'Arabic'
         ]);
         Course::create([
-            'user_id' => 4,
+            'user_id' => 3,
             'category_id' => '5',
             'image' => 'film.jpg',
             'name' => 'Film Making & Storytelling',
