@@ -36,7 +36,7 @@ Route::get('/user/courses/{id}', [CourseController::class, 'userCourses']);
 Route::get('/categories/name/{id}', [CategoryController::class, 'showName']);
 Route::get('/courses/category/{id}', [CourseController::class, 'categoryCourses']);
 Route::get('/courses/search/{id}', [CourseController::class, 'search']);
-    //privet
+//privet
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
     // Route::get('/logout', [AuthController::class,'logout']);
@@ -49,7 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //section _\|/_ courses
     Route::get('/courses', [CourseController::class, 'index']);
-   
+
     Route::post('/courses/add', [CourseController::class, 'store']);
     Route::put('/courses/edit/{id}', [CourseController::class, 'update']);
     Route::delete('/courses/delete/{id}', [CourseController::class, 'destroy']);
@@ -72,6 +72,7 @@ Route::middleware('auth:sanctum')->group(function () {
     //section _\|/_ user Courses
     Route::get('/userCourses/{id}', [UserCourseController::class, 'show']);
     Route::post('/userCourses/add', [UserCourseController::class, 'store']);
+    Route::get('/learnings/{id}', [UserCourseController::class, 'learnings']);
     //section _\|/_ codes
     Route::post('/code/add', [CodeController::class, 'store']);
     Route::put('/code/edit/{id}', [CodeController::class, 'update']);
@@ -82,5 +83,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/cart/{id}', [CartController::class, 'show']);
     Route::delete('/cart/{id}', [CartController::class, 'destroy']);
     Route::get('/cart/length/{id}', [CartController::class, 'length']);
-
 });

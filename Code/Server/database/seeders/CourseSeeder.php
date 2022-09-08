@@ -24,6 +24,7 @@ class CourseSeeder extends Seeder
             'description' => "Games are different from work, which is usually carried out for remuneration, and from art, which is more often an expression of aesthetic or ideological elements.",
             'second_description' => "A game is a structured form of play, usually undertaken for entertainment or fun, and sometimes used as an educational tool.",
             'time' => '14',
+            'students'=>"25",
             'language' => 'English'
         ]);
         Course::create([
@@ -36,6 +37,7 @@ class CourseSeeder extends Seeder
             'description' => "ReactJS is JavaScript library used for building reusable UI components. According to React official documentation, following is the definition",
             'second_description' => "for building composable user interfaces.",
             'time' => '24',
+            'students'=>"50",
             'language' => 'Arabic'
         ]);
         Course::create([
@@ -48,6 +50,7 @@ class CourseSeeder extends Seeder
             'description' => "is a popular JavaScript-based mobile app framework that allows you to build natively-rendered mobile apps for iOS and Android.",
             'second_description' => "create an application for various platforms by using the same codebase",
             'time' => '20',
+            'students'=>"75",
             'language' => 'Arabic'
         ]);
         Course::create([
@@ -60,6 +63,7 @@ class CourseSeeder extends Seeder
             'description' => "Full Stack Developers have to have some skills in a wide variety of coding niches",
             'second_description' => "from databases to graphic design and UI/UX management in order to do their job well",
             'time' => '32',
+            'students'=>"100",
             'language' => 'English'
         ]);
         Course::create([
@@ -72,6 +76,7 @@ class CourseSeeder extends Seeder
             'description' => "You will gain more knowledge by trying and failing than by reading everything and doing nothing.",
             'second_description' => "As a business owner, you intuitively know what your business needs.",
             'time' => '10',
+            'students'=>"125",
             'language' => 'English'
         ]);
         Course::create([

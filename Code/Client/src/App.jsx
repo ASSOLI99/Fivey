@@ -40,6 +40,7 @@ import Code from "./Admin/components/code/Code";
 import UserCourses from "./components/profile/UserCourses";
 import Search from "./components/search/Search";
 import { useState } from "react";
+import Learnings from "./pages/Learnings";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -111,6 +112,7 @@ function App() {
                 <Route exact path={"/"} element={<Welcome />} />
                 <Route exact path="/about" element={<About />} />
                 <Route exact path="/search/:search" element={<Search />} />
+                <Route exact path="/Learnings" element={<Learnings />} />
                 <Route exact path="/categories">
                   <Route exact index element={<Categories />} />
                   <Route exact path={":name"} element={<OneCat />} />

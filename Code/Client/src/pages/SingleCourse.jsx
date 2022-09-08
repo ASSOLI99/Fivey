@@ -1,13 +1,14 @@
 import "./CSS/SingleCourse.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Pagination from "react-js-pagination";
 import { Alert, Button, Form, Modal } from "react-bootstrap";
 const SingleCourse = () => {
   const userId = useSelector((state) => state.user.id);
   const { id } = useParams();
+  const navigate = useNavigate();
   const [courseData, setCourseData] = useState("");
   const [userCourses, setUserCourses] = useState(false);
   const [owned, setOwned] = useState(false);
@@ -153,11 +154,10 @@ const SingleCourse = () => {
     }
   };
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [message, setMessage] = useState(false);
-  const addToCartHandler = () => {
+  const addToCartHandler = (e) => {
     const fData = new FormData();
     fData.append("user_id", userId);
     fData.append("course_id", id);
@@ -170,9 +170,12 @@ const SingleCourse = () => {
       })
       .then((res) => {
         setMessage(res.data);
-        window.scroll(0, 0);
-      })
-      .catch((error) => {});
+        if (e) {
+          window.scroll(0, 0);
+        } else {
+          navigate("/cart");
+        }
+      });
   };
   return (
     <div className="single-course">
@@ -261,13 +264,15 @@ const SingleCourse = () => {
                   {!owned ? (
                     userId ? (
                       <>
-                        <button className="buy-btn">Buy course</button>
+                        <button
+                          className="buy-btn"
+                          onClick={() => addToCartHandler(false)}
+                        >
+                          Buy course
+                        </button>
                         <button
                           className="add-btn"
-                          onClick={addToCartHandler}
-                          data-bs-toggle="tooltip"
-                          data-bs-placement="top"
-                          data-bs-title="Tooltip on top"
+                          onClick={() => addToCartHandler(true)}
                         >
                           Add to cart
                         </button>

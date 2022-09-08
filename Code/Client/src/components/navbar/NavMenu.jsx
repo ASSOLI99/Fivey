@@ -157,7 +157,7 @@ const NavMenu = () => {
                   )}
                   {role && (
                     <>
-                      <Dropdown.Item as={Link} to="/">
+                      <Dropdown.Item as={Link} to="/Learnings">
                         My Purchases
                       </Dropdown.Item>
                       <Dropdown.Divider />
@@ -262,7 +262,11 @@ const NavMenu = () => {
                 ) : (
                   <li>
                     {role ? (
-                      <Nav.Link as={Link} to="/watch" className="middle-link">
+                      <Nav.Link
+                        as={Link}
+                        to="/Learnings"
+                        className="middle-link"
+                      >
                         watch <i className="bi bi-play-circle"></i>
                       </Nav.Link>
                     ) : (
@@ -315,7 +319,7 @@ const NavMenu = () => {
             </span>
             <span>Search</span>
           </Nav.Link>
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={Link} to="/Learnings">
             <span className="d-flex justify-content-center nav-icon">
               <i className="bi bi-play-circle-fill"></i>
             </span>
