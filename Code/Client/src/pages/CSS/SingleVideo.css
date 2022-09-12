@@ -302,3 +302,16 @@
   color: var(--main-yellow);
 }
 /* main end */
+/* video styles */
+.vjs-playback-rate-value{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vjs-menu-button-popup .vjs-menu{
+bottom: 20px;
+width: 70px;
+left: 50%;
+transform: translateX(-50%);
+}
+/* video styles */

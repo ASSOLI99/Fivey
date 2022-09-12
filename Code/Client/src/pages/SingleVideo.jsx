@@ -82,9 +82,12 @@ const SingleVideo = () => {
           setMyVideo(res.data);
           setVideoJsOptions({
             controls: true,
+            autoplay: true,
+            playbackRates: [0.75, 1, 1.25, 1.5, 1.75, 2],
+            userActions: { doubleClick: true, hotkeys: true },
             sources: [
               {
-                src: `http://localhost:8000/video/course/${res.data[0].video}`,
+                src: `http://127.0.0.1:8080/${res.data[0].video}`,
                 type: "video/mp4",
               },
             ],
