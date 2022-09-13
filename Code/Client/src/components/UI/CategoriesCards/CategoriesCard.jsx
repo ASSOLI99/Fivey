@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import "./CategoriesCard.css";
 const CategoriesCard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([""]);
@@ -20,7 +20,7 @@ const CategoriesCard = () => {
         {isLoading ? (
           <div className="spinner-border text-warning ms-5" role="status"></div>
         ) : (
-          <Row>
+          <Row className=" justify-content-center">
             {categories.map((category, index) => {
               return (
                 <Col
@@ -29,7 +29,7 @@ const CategoriesCard = () => {
                 >
                   <Link
                     to={`/categories/${category.name}`}
-                    className="text-decoration-none btn btn-warning"
+                    className="text-decoration-none btn btn-warning category-card "
                   >
                     {category.name}
                   </Link>

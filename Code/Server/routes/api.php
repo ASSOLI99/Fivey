@@ -71,6 +71,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/videos/course/{id}', [VideoController::class, 'index']);
     //section _\|/_ user Courses
     Route::get('/userCourses/{id}', [UserCourseController::class, 'show']);
+    Route::get('/homeCourses/{id}', [UserCourseController::class, 'homeCourses']);
     Route::post('/userCourses/add', [UserCourseController::class, 'store']);
     Route::get('/learnings/{id}', [UserCourseController::class, 'learnings']);
     //section _\|/_ codes

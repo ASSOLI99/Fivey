@@ -10,7 +10,7 @@ const Welcoming = () => {
         fluid
         className="welcoming container-xl d-flex flex-column justify-content-center align-items-center py-5"
       >
-        <h1>
+        <h1 className="text-center">
           Welcome{" "}
           {userName ? (
             <span> {userName}</span>

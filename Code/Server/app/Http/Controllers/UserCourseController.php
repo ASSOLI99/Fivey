@@ -92,6 +92,24 @@ class UserCourseController extends Controller
             ->paginate(12);
         return response($courses, 200);
     }
+    public function homeCourses($id)
+    {
+        $courses = DB::table('user_courses')
+            ->join('users', function ($join) use ($id) {
+                $join->on('user_courses.user_id', '=', 'users.id')
+                    ->where('users.id', '=', $id);
+            })->join('courses', 'courses.id', '=', 'user_courses.course_id')
+            ->select(
+                'courses.name As name',
+                'courses.image As image',
+                'courses.description As description',
+                'courses.second_description As second_description',
+                'courses.time As time',
+                'courses.id As id',
+            )
+            ->limit(3)->get();
+        return response($courses, 200);
+    }
 
     /**
      * Show the form for editing the specified resource.

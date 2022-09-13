@@ -21,7 +21,7 @@ const Welcome = () => {
     <>
       <Welcoming />
       <HeaderMenu allCategory={allCategory} />
-      <NewsLetter />
+
       {allCategory.map((category, index) => {
         return (
           <Fragment key={category.name}>
