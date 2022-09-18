@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { useEffect } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
 const Login = () => {
+  //navigate
+  const navigate = useNavigate();
   //message
   const [message, setMessage] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
@@ -48,7 +48,8 @@ const Login = () => {
       };
       axios.post("http://127.0.0.1:8000/api/login", api).then((res) => {
         localStorage.setItem("token", res.data.token);
-        window.location.href = "http://localhost:5173";
+        navigate("/");
+        location.reload();
       });
     } else {
       setMessage("Invalid Credential !");
@@ -57,13 +58,20 @@ const Login = () => {
   };
   return (
     <div className="auth">
-      <Container fluid className="container-xl">
-        <h1>Login</h1>
+      <Container>
+        <h1>
+          Login <span>.</span>
+        </h1>
+        <Link className="text-light link-warning" to={"/register"}>
+          Don't have Account ?
+        </Link>
         <Row>
           <Col className="options col-12 col-md-8">
             <Form onSubmit={submitHandler}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="fw-bold">Email address</Form.Label>
+              <Form.Group className="group mb-3" controlId="formBasicEmail">
+                <Form.Label className="fw-bold">
+                  <i class="bi bi-envelope"></i> Email
+                </Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -74,8 +82,10 @@ const Login = () => {
                 <Form.Text className="text-danger">{emailMessage}</Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className="fw-bold">Password</Form.Label>
+              <Form.Group className="group mb-3" controlId="formBasicPassword">
+                <Form.Label className="fw-bold">
+                  <i class="bi bi-shield-lock"></i> Password
+                </Form.Label>
                 <Form.Control
                   type="password"
                   onKeyDown={passwordHandler}
@@ -90,7 +100,7 @@ const Login = () => {
                 variant="warning"
                 type="submit"
               >
-                Submit
+                Login
               </Button>
               <p className="text-danger mt-2">{message}</p>
             </Form>

@@ -1,3 +1,9 @@
+:root {
+  --main-yellow: #f8c600;
+  --main-transition: 0.3s ease;
+  --secoundry-color: gray;
+  --secoundry-yellow: #f9e107;
+}
 .auth {
   background-repeat: no-repeat;
   background-size: cover;
@@ -5,19 +11,57 @@
     rgba(227, 216, 16, 0.249),
     rgba(255, 166, 0, 0.183)
   );
-  padding: 30px 0;
+  padding: 40px 0;
+  background-image: url(./auth.png);
+  min-height: 88vh;
 }
-.options {
-  background-color: rgba(2, 2, 2, 0.708);
+.auth h1{
+color: white;
+font-weight: bold;
+}
+.auth h1 span{
+  color: var(--main-yellow);
+}
+.auth .options {
+  background-color: transparent;
   border-radius: 20px;
   padding: 20px 10px;
   color: white;
 }
-.options input {
-  box-shadow: 0 0 0 #f8c600;
+.auth .options label {
+  font-size: 20px;
 }
-.options input:focus {
+.auth .options input {
+  max-width: 300px;
+  box-shadow: 0 0 0 #f8c600;
+  border: none;
+  padding: 10px;
+  color: white;
+  background-color: #f8c60092;
+}
+.auth .options input::placeholder {
+color: rgb(28, 28, 28);
+}
+.auth .options input:focus {
   border-color: #f8c600;
   /* box-shadow: 0 0 0 #f8c600; */
   box-shadow: 0 0 0 0.25rem #f8c600;
+}
+@media(max-width:600px){
+  .auth{
+    background-image: url(./resposive-auth.png);
+    text-align: center;
+  }
+  .group{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .group input{
+    text-align: center;
+  }
+  .auth form{
+    text-align: center;
+  }
 }
