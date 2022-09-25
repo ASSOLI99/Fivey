@@ -1,3 +1,5 @@
+import Plyr from "plyr-react";
+import "plyr-react/plyr.css";
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -5,8 +7,6 @@ import { Alert, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
-// This imports the functional component from the previous sample.
-import VideoJS from "../components/video/Video";
 import "./CSS/SingleVideo.css";
 const SingleVideo = () => {
   const userId = useSelector((state) => state.user.id);
@@ -79,19 +79,7 @@ const SingleVideo = () => {
       axios
         .get(`http://127.0.0.1:8000/api/videos/${video_id}`)
         .then((res) => {
-          setMyVideo(res.data);
-          setVideoJsOptions({
-            controls: true,
-            autoplay: true,
-            playbackRates: [0.75, 1, 1.25, 1.5, 1.75, 2],
-            userActions: { doubleClick: true, hotkeys: true },
-            sources: [
-              {
-                src: `http://127.0.0.1:8080/${res.data[0].video}`,
-                type: "video/mp4",
-              },
-            ],
-          });
+          setMyVideo(`http://192.168.1.166:8080/${res.data[0].video}`);
           console.log(res.data);
           if (res.data[0].state == 2) {
             setOwned1(true);
@@ -102,32 +90,21 @@ const SingleVideo = () => {
         .catch((error) => console.log(error));
     }
   }, [video_id]);
-  // get video end
-  const playerRef = React.useRef(null);
-
-  const handlePlayerReady = (player) => {
-    playerRef.current = player;
-
-    // You can handle player events here, for example:
-    player.on("waiting", () => {
-      videojs.log("player is waiting");
-    });
-
-    player.on("dispose", () => {
-      videojs.log("player will dispose");
-    });
+  const videoSrc = {
+    type: "video",
+    sources: [
+      {
+        src: myVideo,
+      },
+    ],
   };
+
+  // get video end
 
   return (
     <Container>
       {owned1 || owned ? (
-        videoJsOptions && (
-          <VideoJS
-            className="theVideo"
-            options={videoJsOptions}
-            onReady={handlePlayerReady}
-          />
-        )
+        myVideo && <Plyr source={videoSrc} />
       ) : (
         <Alert variant="danger mt-3">
           you must buy this course first!{" "}

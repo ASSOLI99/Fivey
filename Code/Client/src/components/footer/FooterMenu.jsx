@@ -45,22 +45,19 @@ const FooterMenu = () => {
             </a>
           </Col>
           <Col className="col-12 col-sm-6 col-md-3 col-xl-3 col2 mb-3">
-            <h4 className="fs-5">GrabOne</h4>
+            <h4 className="fs-5">Fivey</h4>
             <ul className="p-0 m-0 justify-content-start list-unstyled d-flex flex-column gap-2">
               <li>
-                <Link to={"Contact-Page"}>Contact Us</Link>
+                <Link to={"/About"}>About Us</Link>
               </li>
               <li>
-                <Link to={"Contact-Page"}>About Us</Link>
+                <Link to={"/categories"}>Courses</Link>
               </li>
               <li>
-                <Link to={"Contact-Page"}>Terms & Returns</Link>
+                <Link to={"/terms"}>Terms & Returns</Link>
               </li>
               <li>
-                <Link to={"Contact-Page"}>Blog</Link>
-              </li>
-              <li>
-                <Link to={"Contact-Page"}>Gift Cards</Link>
+                <Link to={"teachers"}>Our Teachers</Link>
               </li>
             </ul>
           </Col>
@@ -68,13 +65,13 @@ const FooterMenu = () => {
             <h4 className="fs-5">My Account</h4>
             <ul className="p-0 m-0 justify-content-start list-unstyled d-flex flex-column gap-2">
               <li>
-                <Link to={"My-Account"}>My Account</Link>
+                <Link to={"/profile"}>My Account</Link>
               </li>
               <li>
-                <Link to={"My-Account"}>My Cart</Link>
+                <Link to={"/cart"}>My Cart</Link>
               </li>
               <li>
-                <Link to={"My-Account"}>My Coupons</Link>
+                <Link to={"My-Account"}>My Courses</Link>
               </li>
               <li>
                 <Link to={"My-Account"}>FAQ</Link>
